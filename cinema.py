@@ -58,17 +58,10 @@ class BaseHandler(tornado.web.RequestHandler):
         return tornado.web.RequestHandler.render_string(
             self, template_name, users=users, **kwargs)
 
-
 class HomeHandler(BaseHandler):
-    def get(self):
-        entries = db.Query(Entry).order('-published').fetch(limit=5)
-        if not entries:
-            if not self.current_user or self.current_user.administrator:
-                self.redirect("/compose")
-                return
-        self.render("home.html", entries=entries)
-
-
+	def get(self):
+		self.render("home.html")
+	
 class EntryHandler(BaseHandler):
     def get(self, slug):
         entry = db.Query(Entry).filter("slug =", slug).get()
@@ -127,9 +120,9 @@ class ComposeHandler(BaseHandler):
         self.redirect("/entry/" + entry.slug)
 
 
-class EntryModule(tornado.web.UIModule):
-    def render(self, entry):
-        return self.render_string("modules/entry.html", entry=entry)
+class FilmModule(tornado.web.UIModule):
+    def render(self, movie):
+        return self.render_string("modules/film.html", movie=movie)
 
 
 settings = {
@@ -137,7 +130,7 @@ settings = {
     "cinema_location": u"Faversham",
     "cinema_title": u"The Royal Cinema Faversham",
     "template_path": os.path.join(os.path.dirname(__file__), "templates"),
-    "ui_modules": {"Entry": EntryModule},
+    "ui_modules": {"Film": FilmModule},
     "xsrf_cookies": True,
 }
 application = tornado.wsgi.WSGIApplication([
