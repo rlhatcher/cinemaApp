@@ -135,6 +135,7 @@ application = tornado.wsgi.WSGIApplication([
 
 application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
     (r"/", royalCinemaHandler),
+    (r"/home", royalCinemaHandler),
     (r"/index.html", royalCinemaHandler),
     ])
 

@@ -38,8 +38,8 @@ ul, ol {list-style:none}
 .movies li {float:left;width:244px;margin-right:18px;margin-left:18px;}
 .movies li.last {margin-right:0}
 .movies li.clear {float:none;width:auto;margin:0;font-size:0;line-height:0}
-.movies li img {position:relative;padding-bottom:20px;width:244px}
-.movies li p {min-height:100px;margin:5px 0 15px 0;line-height:1.5em;color:#bfbfbf;}
+.movies li img {position:relative;padding-bottom:0px;width:244px}
+.movies li p {min-height:125px;margin:5px 0 0 0;line-height:1.5em;color:#bfbfbf;}
 .movies li p span {color:#fff}
 .list {margin-top:-30px}
 .list li {width:100%;overflow:hidden;vertical-align:top;line-height:1.714em;padding-top:40px}
