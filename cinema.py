@@ -8,21 +8,19 @@ import tornado.web
 import tornado.wsgi
 import unicodedata
 import wsgiref.handlers
+import imdb
+
+import traceback 
 
 from google.appengine.api import users
 from google.appengine.ext import db
 
-
-class Entry(db.Model):
-    """A single blog entry."""
-    author = db.UserProperty()
-    title = db.StringProperty(required=True)
-    slug = db.StringProperty(required=True)
-    markdown = db.TextProperty(required=True)
-    html = db.TextProperty(required=True)
-    published = db.DateTimeProperty(auto_now_add=True)
-    updated = db.DateTimeProperty(auto_now=True)
-
+class Movie(db.Model):
+    imdbID = db.StringProperty()
+    title = db.StringProperty()
+    coverURL = db.StringProperty()
+    plotOutline = db.StringProperty()
+    category = db.CategoryProperty()
 
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
@@ -42,7 +40,6 @@ def administrator(method):
             return method(self, *args, **kwargs)
     return wrapper
 
-
 class BaseHandler(tornado.web.RequestHandler):
     """Implements Google Accounts authentication methods."""
     def get_current_user(self):
@@ -58,68 +55,62 @@ class BaseHandler(tornado.web.RequestHandler):
         return tornado.web.RequestHandler.render_string(
             self, template_name, users=users, **kwargs)
 
+class royalCinemaHandler(BaseHandler):
+    def get(self):
+
+        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        self.render("home.html", movies=movies)
+
 class HomeHandler(BaseHandler):
-	def get(self):
-		self.render("home.html")
-	
-class EntryHandler(BaseHandler):
-    def get(self, slug):
-        entry = db.Query(Entry).filter("slug =", slug).get()
-        if not entry: raise tornado.web.HTTPError(404)
-        self.render("entry.html", entry=entry)
-
-
-class ArchiveHandler(BaseHandler):
     def get(self):
-        entries = db.Query(Entry).order('-published')
-        self.render("archive.html", entries=entries)
 
-
-class FeedHandler(BaseHandler):
+        self.render("ic/home.html")
+        
+        
+class PopulateHandler(BaseHandler):
+    """Populates default movie database objects"""
     def get(self):
-        entries = db.Query(Entry).order('-published').fetch(limit=10)
-        self.set_header("Content-Type", "application/atom+xml")
-        self.render("feed.xml", entries=entries)
+        
+        movie = Movie(key_name = "1504320",
+                      imdbID = "1504320",
+                      title = "The King's Speech",
+                      plotOutline = "The story of King George VI of Britain, his impromptu ascension to the throne and the speech therapist who helped the unsure monarch become worthy of it.",
+                      coverURL = "/static/images/1504320_250.jpg",
+                      category = db.Category("Showing Now"))
+                      
+        movie.put()
+        
+        movie = Movie(key_name = "0076759",
+                      imdbID = "0076759",
+                      title = "Star Wars",
+                      plotOutline = "Luke Skywalker leaves his home planet, teams up with other rebels, and tries to save Princess Leia from the evil clutches of Darth Vader.",
+                      coverURL = "/static/images/0076759_250.jpg",
+                      category = db.Category("Showing Now"))
+        movie.put()
 
+        movie = Movie(key_name = "0062622",
+                      imdbID = "0062622",
+                      title = "2001: A Space Odyssey",
+                      plotOutline = "Mankind finds a mysterious, obviously artificial, artifact buried on the moon and, with the intelligent computer HAL, sets off on a quest.",
+                      coverURL = "/static/images/0062622_250.jpg",
+                      category = db.Category("Showing Now"))
+                      
+        movie.put()
 
-class ComposeHandler(BaseHandler):
-    @administrator
+class PurgeHandler(BaseHandler):
+    """Remove all movies"""
     def get(self):
-        key = self.get_argument("key", None)
-        entry = Entry.get(key) if key else None
-        self.render("compose.html", entry=entry)
-
-    @administrator
-    def post(self):
-        key = self.get_argument("key", None)
-        if key:
-            entry = Entry.get(key)
-            entry.title = self.get_argument("title")
-            entry.markdown = self.get_argument("markdown")
-            entry.html = markdown.markdown(self.get_argument("markdown"))
-        else:
-            title = self.get_argument("title")
-            slug = unicodedata.normalize("NFKD", title).encode(
-                "ascii", "ignore")
-            slug = re.sub(r"[^\w]+", " ", slug)
-            slug = "-".join(slug.lower().strip().split())
-            if not slug: slug = "entry"
-            while True:
-                existing = db.Query(Entry).filter("slug =", slug).get()
-                if not existing or str(existing.key()) == key:
-                    break
-                slug += "-2"
-            entry = Entry(
-                author=self.current_user,
-                title=title,
-                slug=slug,
-                markdown=self.get_argument("markdown"),
-                html=markdown.markdown(self.get_argument("markdown")),
-            )
-        entry.put()
-        self.redirect("/entry/" + entry.slug)
-
-
+        
+        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        for movie in movies:
+            movie.delete()
+        
+class CmsHandler(BaseHandler):
+    """Fire up the CMS application"""
+    def get(self):
+        
+        self.redirect("/static/cinemaCMS.html")
+                
 class FilmModule(tornado.web.UIModule):
     def render(self, movie):
         return self.render_string("modules/film.html", movie=movie)
@@ -130,17 +121,22 @@ settings = {
     "cinema_location": u"Faversham",
     "cinema_title": u"The Royal Cinema Faversham",
     "template_path": os.path.join(os.path.dirname(__file__), "templates"),
+    "static_path": os.path.join(os.path.dirname(__file__), "static"),
     "ui_modules": {"Film": FilmModule},
     "xsrf_cookies": True,
 }
+
 application = tornado.wsgi.WSGIApplication([
     (r"/", HomeHandler),
-    (r"/archive", ArchiveHandler),
-    (r"/feed", FeedHandler),
-    (r"/entry/([^/]+)", EntryHandler),
-    (r"/compose", ComposeHandler),
+    (r"/populate", PopulateHandler),
+    (r"/purge", PurgeHandler),
+    (r"/cms", CmsHandler),
 ], **settings)
 
+application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
+    (r"/", royalCinemaHandler),
+    (r"/index.html", royalCinemaHandler),
+    ])
 
 def main():
     wsgiref.handlers.CGIHandler().run(application)
