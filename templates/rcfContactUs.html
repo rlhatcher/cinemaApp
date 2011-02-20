@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block tabs %}
+<ul>
+<li><a href="/home">Home</a></li>
+<li><a href="/showingNow">Showing Now</a></li>
+<li><a href="/comingSoon">Coming Soon</a></li>
+<li><a href="/aboutUs">About Us</a></li>
+<li class="last"><a href="/contactUs" class="active">Contact Us</a></li>
+</ul>
+{% end %}
+{% block body %}
+<div class="line-hor"></div>
+	<div class="box">
+		<div class="border-right">
+			<div class="border-left">
+				<div class="inner">
+					<h3>Contact <span>Details</span></h3>
+					<div class="address">
+                        <div class="fleft">
+                            <span>Address:</span>9 Market Place, Faversham<br />
+                            <span>Post Code:</span>ME13 7AG<br />
+							<span>Telephone:</span>01795 591211/591735<br />
+                            <span>Fax:</span>01795 538033<br />
+                            <span>eMail:</span>PTE440@aol.com<br />
+						</div>
+						<div class="extra-wrap"><span>Miscellaneous info:</span><br />
+						    Local train and bus services are really good there's free parking for you too if you like that sort of thing
+						</div>
+					</div>
+						<h3>Our <span>Location</span></h3>
+                            <iframe width="840" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=The+Royal+Cinema,+Faversham,+United+Kingdom&amp;sll=37.0625,-95.677068&amp;sspn=36.178967,78.134766&amp;ie=UTF8&amp;hq=The+Royal+Cinema,&amp;hnear=Faversham,+United+Kingdom&amp;ll=51.315969,0.890944&amp;spn=0.004023,0.006437&amp;z=16&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=The+Royal+Cinema,+Faversham,+United+Kingdom&amp;sll=37.0625,-95.677068&amp;sspn=36.178967,78.134766&amp;ie=UTF8&amp;hq=The+Royal+Cinema,&amp;hnear=Faversham,+United+Kingdom&amp;ll=51.315969,0.890944&amp;spn=0.004023,0.006437&amp;z=16&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+                		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% end %}

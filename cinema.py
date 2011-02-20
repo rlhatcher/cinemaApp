@@ -55,17 +55,11 @@ class BaseHandler(tornado.web.RequestHandler):
         return tornado.web.RequestHandler.render_string(
             self, template_name, users=users, **kwargs)
 
-class royalCinemaHandler(BaseHandler):
-    def get(self):
-
-        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
-        self.render("home.html", movies=movies)
 
 class HomeHandler(BaseHandler):
     def get(self):
 
         self.render("ic/home.html")
-        
         
 class PopulateHandler(BaseHandler):
     """Populates default movie database objects"""
@@ -110,11 +104,41 @@ class CmsHandler(BaseHandler):
     def get(self):
         
         self.redirect("/static/cinemaCMS.html")
-                
+
+class rcfHomeHandler(BaseHandler):
+    def get(self):
+        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        self.render("rcfHome.html", movies=movies)
+        
+class rcfShowingNowHandler(BaseHandler):
+    """Display the Showing Now page for the Royal Cinema"""
+    def get(self):
+        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        self.render("rcfShowingNow.html", movies=movies)
+                                
+class rcfComingSoonHandler(BaseHandler):
+    """Display the Showing Now page for the Royal Cinema"""
+    def get(self):
+        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        self.render("rcfComingSoon.html", movies=movies)
+
+class rcfAboutUsHandler(BaseHandler):
+    """Display the About Us page for the Royal Cinema"""
+    def get(self):
+        self.render("rcfAboutUs.html")
+
+class rcfContactUsHandler(BaseHandler):
+    """Display the About Us page for the Royal Cinema"""
+    def get(self):
+        self.render("rcfContactUs.html")
+
 class FilmModule(tornado.web.UIModule):
     def render(self, movie):
         return self.render_string("modules/film.html", movie=movie)
 
+class FilmDetailModule(tornado.web.UIModule):
+    def render(self, movie):
+        return self.render_string("modules/filmDetail.html", movie=movie)
 
 settings = {
     "cinema_name": u"The Royal Cinema",
@@ -122,7 +146,7 @@ settings = {
     "cinema_title": u"The Royal Cinema Faversham",
     "template_path": os.path.join(os.path.dirname(__file__), "templates"),
     "static_path": os.path.join(os.path.dirname(__file__), "static"),
-    "ui_modules": {"Film": FilmModule},
+    "ui_modules": {"Film": FilmModule,"FilmDetail": FilmDetailModule},
     "xsrf_cookies": True,
 }
 
@@ -134,14 +158,17 @@ application = tornado.wsgi.WSGIApplication([
 ], **settings)
 
 application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
-    (r"/", royalCinemaHandler),
-    (r"/home", royalCinemaHandler),
-    (r"/index.html", royalCinemaHandler),
+    (r"/", rcfHomeHandler),
+    (r"/home", rcfHomeHandler),
+    (r"/index.html", rcfHomeHandler),
+    (r"/showingNow", rcfShowingNowHandler),
+    (r"/comingSoon", rcfComingSoonHandler),
+    (r"/aboutUs", rcfAboutUsHandler),
+    (r"/contactUs", rcfContactUsHandler),
     ])
 
 def main():
     wsgiref.handlers.CGIHandler().run(application)
-
 
 if __name__ == "__main__":
     main()

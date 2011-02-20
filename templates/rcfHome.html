@@ -1,5 +1,13 @@
 {% extends "base.html" %}
-
+{% block tabs %}
+<ul>
+<li><a href="/home" class="active">Home</a></li>
+<li><a href="/showingNow">Showing Now</a></li>
+<li><a href="/comingSoon">Coming Soon</a></li>
+<li><a href="/aboutUs">About Us</a></li>
+<li class="last"><a href="/contactUs">Contact Us</a></li>
+</ul>
+{% end %}
 {% block body %}
 <div id="slogan">
 <div class="image png"></div>
@@ -14,7 +22,7 @@ It is one of only about 100 surviving original big-screen cinemas in the UK.</p>
 <div class="border-right">
 <div class="border-left">
 <div class="inner">
-    <h3><span>Showing Now</span></h3>
+    <h3>Showing <span>Now</span></h3>
     <ul class="movies">
         {% for movie in movies %}
             {{ modules.Film(movie) }}
