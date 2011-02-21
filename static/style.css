@@ -85,7 +85,7 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
 .box .inner {padding:15px 50px 25px 50px}
 /* HEADER */
 #header .row-1 {height:112px;width:100%;overflow:hidden}
-#header .row-1 .fleft {font-size:40px;line-height:1.2em;padding:26px 0 0 47px}
+#header .row-1 .fleft {font-size:40px;line-height:1.2em}
 #header .row-1 .fleft a {text-decoration:none}
 #header .row-1 ul {padding:49px 60px 0 0;float:right}
 #header .row-1 ul li {float:left;padding-left:54px}
