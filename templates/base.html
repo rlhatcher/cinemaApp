@@ -21,33 +21,56 @@
 	<link href="ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 {% block head %}{% end %}
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8402241539489441";
+/* Rich Small Banner */
+google_ad_slot = "0999125682";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21564593-1']);
+  _gaq.push(['_setDomainName', '.independent-cinemas.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </head>
 <body id="page1">
 <div class="tail-top">
     <div class="tail-bottom">
-	<div id="main">
+	    <div id="main">
 <!-- HEADER -->
-	    <div id="header">
-		<div class="row-1">
-		    <div class="fleft">
-			<a href="/home">
-			    {{ escape(handler.settings["cinema_name"]) }} 
-			    <span>{{ escape(handler.settings["cinema_location"]) }}</span>
-			</a>
-		    </div>
-		</div>
-		<div class="row-2">{% block tabs %}{% end %}</div>
-	    </div>
+	        <div id="header">
+		        <div class="row-1">
+                     <div class="fleft"> 
+		                <ul>
+		                    <li>
+			            <a href="/home">{{ escape(handler.settings["cinema_name"]) }} <span>{{ escape(handler.settings["cinema_location"]) }}</span></a>
+			                </li>
+			                <li class="fright">
+                        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                            </li>
+                        </ul>
+                    </div>
+		        </div>
+		    <div class="row-2">{% block tabs %}{% end %}</div>
+	        </div>
 <!-- CONTENT -->
-	    <div id="content">{% block body %}{% end %}</div>
-
+	        <div id="content">{% block body %}{% end %}</div>
 <!-- FOOTER -->
-		<div class="inside">Copyright - Signature Interactive Solutions Limited</div>
-		
-	</div>
+            <div id="footer">
+		        <div class="inside">Created by Signature Interactive Solutions Limited</div>
+		    </div>
+	    </div>
     </div>
 </div>
 <script type="text/javascript"> Cufon.now(); </script>
 </body>
-</html>	    
-
+</html>

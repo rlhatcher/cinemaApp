@@ -10,7 +10,7 @@ img {border:0;vertical-align:top;text-align:left}
 ul, ol {list-style:none}
 /* GLOBAL */
 #main {width:940px;margin:0 auto;font-size:0.875em}
-#header {height:171px;margin-bottom:-8px}
+#header {height:129px;margin-bottom:-8px}
 #footer {color:#757575;font-size:.86em;line-height:1.667em;text-align:center}*/
 /* ALIGMENT */
 .fleft {float:left}
@@ -84,11 +84,11 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
 .box .border-right {background:url(/static/images/border-right.gif) repeat-y right top}
 .box .inner {padding:15px 50px 25px 50px}
 /* HEADER */
-#header .row-1 {height:112px;width:100%;overflow:hidden}
+#header .row-1 {height:70px;width:100%;overflow:hidden;margin-top:10px}
 #header .row-1 .fleft {font-size:40px;line-height:1.2em}
 #header .row-1 .fleft a {text-decoration:none}
-#header .row-1 ul {padding:49px 60px 0 0;float:right}
-#header .row-1 ul li {float:left;padding-left:54px}
+#header .row-1 ul {width:100%;overflow:hidden;font-size:35px;line-height:1.5em}
+#header .row-1 ul li a {float:left;text-decoration:none}
 #header .row-2 {height:51px}
 #header .row-2 ul {width:100%;overflow:hidden}
 #header .row-2 ul li {float:left;font-size:20px;line-height:2.4em;margin-right:5px;background-color:#000}
