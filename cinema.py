@@ -90,12 +90,37 @@ class PopulateHandler(BaseHandler):
                       category = db.Category("Showing Now"))
                       
         movie.put()
+        movie = Movie(key_name = "0947798",
+                      imdbID = "0947798",
+                      title = "The Black Swan",
+                      plotOutline = "A ballet dancer wins the lead in 'Swan Lake' and is perfect for the role of the delicate White Swan - Princess Odette - but slowly loses her mind as she becomes more and more like Odette's evil sister, Odile, the Black Swan.",
+                      coverURL = "/static/images/0947798_250.jpg",
+                      category = db.Category("Coming Soon"))
+                      
+        movie.put()
+        
+        movie = Movie(key_name = "0120737",
+                      imdbID = "0120737",
+                      title = "The Lord of the Rings: The Fellowship of the Ring",
+                      plotOutline = "In a small village in the Shire a young Hobbit named Frodo has been entrusted with an ancient Ring. Now he must embark on an Epic quest to the Cracks of Doom in order to destroy it.",
+                      coverURL = "/static/images/0120737_250.jpg",
+                      category = db.Category("Coming Soon"))
+        movie.put()
+
+        movie = Movie(key_name = "1285016",
+                      imdbID = "1285016",
+                      title = "The Social Network",
+                      plotOutline = "A chronicle of the founding of Facebook, the social-networking Web site.",
+                      coverURL = "/static/images/1285016_250.jpg",
+                      category = db.Category("Coming Soon"))
+                      
+        movie.put()
 
 class PurgeHandler(BaseHandler):
     """Remove all movies"""
     def get(self):
         
-        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie")
         for movie in movies:
             movie.delete()
         
@@ -107,19 +132,19 @@ class CmsHandler(BaseHandler):
 
 class rcfHomeHandler(BaseHandler):
     def get(self):
-        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='Showing Now' LIMIT 3")
         self.render("rcfHome.html", movies=movies)
         
 class rcfShowingNowHandler(BaseHandler):
     """Display the Showing Now page for the Royal Cinema"""
     def get(self):
-        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='Showing Now' LIMIT 3")
         self.render("rcfShowingNow.html", movies=movies)
                                 
 class rcfComingSoonHandler(BaseHandler):
     """Display the Showing Now page for the Royal Cinema"""
     def get(self):
-        movies = db.GqlQuery("SELECT * FROM Movie LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='Coming Soon' LIMIT 3")
         self.render("rcfComingSoon.html", movies=movies)
 
 class rcfAboutUsHandler(BaseHandler):

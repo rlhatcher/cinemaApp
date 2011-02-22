@@ -60,6 +60,11 @@ p {margin-bottom:15px;line-height:1.714em}
 .address span {color:#fff}
 .address .fleft {padding-right:43px !important;padding-right:40px}
 .address .fleft span {float:left;width:80px !important;width:77px}
+/* Film Detail*/
+.detail {width:100%;overflow:hidden;line-height:1.714em}
+.detail span {color:#fff}
+.detail .fleft {padding-right:43px !important;padding-right:40px}
+.detail .fleft span {float:left;width:80px !important;width:77px}
 /* TXT, LINKS, LINES, TITLES */
 a {color:#e1e1e1;outline:none}
 a:hover {text-decoration:none}
