@@ -12,15 +12,12 @@
 <div class="line-hor"></div>
 <div class="box">
 	<div class="border-right">
-		<div class="border-left">
+		<div class="border-left">		    
 			<div class="inner">
 				<h3>Showing <span>Now</span></h3>
-				<p>Some really good films are coming up</p>
-                <ul class="list">
-			        {% for movie in movies %}
-			            {{ modules.FilmDetail(movie) }}
-			        {% end %}
-	            </ul>
+		        {% for movie in movies %}
+		            {{ modules.FilmDetail(movie) }}
+		        {% end %}
             </div>
         </div>
     </div>
