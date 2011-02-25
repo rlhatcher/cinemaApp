@@ -41,25 +41,14 @@ ul, ol {list-style:none}
 .movies li img {position:relative;padding-bottom:0px;width:244px}
 .movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;color:#bfbfbf;}
 .movies li p span {color:#fff}
-/*.movie-detail {width:100%;margin:5px 5px 5px 0;}*/
-.movie-detail p {color:#ffffff}
-/*
-.movie-detail h5 {color:#ff0000;}
-.movie-detail h5 span {position:absolute;color:#ffffff;padding-left:100px;}
-*/
 .movie-title {padding-left:10px;font-size:20px;line-height:1.5em;color:#ffffff;background-color:#d72a18;}
+.movie-detail {width:100%;position:relative;margin:5px 5px 5px 0;}
+.movie-detail p {color:#ffffff}
 .movie-detail h4 {color:#d72a18;font-size:17px;margin:0px;}
-.movie-detail {width:100%;height:370px;position:relative;margin:5px 5px 5px 0;}
 .movie-detail h5 {padding-right:43px !important;padding-right:40px}
 .movie-detail h5 span {float:left;width:80px !important;width:77px;color:#d72a18;}
 #times {height:185px;}
 #times p {padding-left:180px;}
-/*.movie-detail .image {position:absolute;right:-30px;top:-11px;z-index:100;width:457px;height:278px;}*/
-/*
-.movie-detail p {padding-left:300px;}
-.movie-detail .inside {padding:36px 0 0 50px;width:420px}
-.movie-detail h3 {font-size:30px;line-height:1.2em;color:#bfbfbf;padding-left:300px}
-*/
 .list {margin-top:-30px}
 .list li {width:100%;overflow:hidden;vertical-align:top;line-height:1.714em;padding-top:40px}
 .list li img {float:left;margin:-10px 20px 0 0}
@@ -101,7 +90,7 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
 .box {background:#000;width:100%;margin-top:-3px}
 .box .border-left {background:url(/static/images/border-left.gif) repeat-y left top}
 .box .border-right {background:url(/static/images/border-right.gif) repeat-y right top}
-.box .inner {padding:15px 50px 25px 50px}
+.box .inner {padding:15px 50px 25px 50px;overflow:hidden;}
 /* HEADER */
 #header .row-1 {height:70px;width:100%;overflow:hidden;margin-top:10px}
 #header .row-1 .fleft {font-size:40px;line-height:1.2em}
@@ -118,7 +107,7 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
 #content .content {padding:30px 0 39px 50px}
 .inner_copy, .inner_copy a {border:0;float:right;background:#f00;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-50% 0 0 0;overflow:hidden;padding:0}
 /* FOOTER */
-#footer .inside {padding:13px 0;width:100%;text-align:center}
+#footer .inside {padding:13px 0;width:100%;text-align:center;clear:both;}
 #footer a {color:#2c6d9a}
 #slogan {width:940px;height:250px;position:relative;background:url(/static/images/banner-bg.gif) no-repeat left top;color:#1d1d1d}
 #slogan .image {position:absolute;right:-30px;top:-11px;z-index:100;width:457px;height:278px;background:url(/static/images/banner-img-medium.png) no-repeat right top}
@@ -127,3 +116,5 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
 #page1 #content .box {margin:0}
 #page1 #header .row-2 ul li a {height:56px}
 #page1 #header .row-2 ul li.last a:hover {position:relative;z-index:2}
+#scraper {margin:0;width:120px;float:right;padding-top:50px;}
+#adcontent {width:710px;float:left;clear:left;padding-right:10px;}
