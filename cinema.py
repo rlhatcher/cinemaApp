@@ -8,7 +8,7 @@ import tornado.web
 import tornado.wsgi
 import unicodedata
 import wsgiref.handlers
-import imdb
+# import imdb
 
 import traceback 
 
