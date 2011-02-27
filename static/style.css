@@ -41,13 +41,13 @@ ul, ol {list-style:none}
 .movies li img {position:relative;padding-bottom:0px;width:244px}
 .movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;color:#bfbfbf;}
 .movies li p span {color:#fff}
-.movie-detail {width:100%;position:relative;margin:5px 5px 5px 0;}
-.movie-detail p {color:#ffffff}
-.movie-detail h4 {color:#d72a18;font-size:17px;margin:0px;}
-.movie-detail h5 {padding-right:43px !important;padding-right:40px}
+.movie-detail {width:100%;position:relative;margin:15px 0;}
+.movie-detail p {color:#bfbfbf;line-height:1.5em;font-size:15px;}
+.movie-detail h4 {color:#d72a18;font-size:20px;margin:10px 0;}
+.movie-detail h5 {padding-right:43px !important;padding-right:40px:color:#bfbfbf;}
 .movie-detail h5 span {float:left;width:80px !important;width:77px;color:#d72a18;}
 #times {height:185px;}
-#times p {padding-left:180px;}
+#times p {padding-left:180px;margin:0;color:#ffffff;}
 .list {margin-top:-30px}
 .list li {width:100%;overflow:hidden;vertical-align:top;line-height:1.714em;padding-top:40px}
 .list li img {float:left;margin:-10px 20px 0 0}
@@ -76,29 +76,15 @@ h3 {font-size:30px;line-height:1.2em;color:#bfbfbf;margin-bottom:15px}
 h3 b {color:#e1e1e1;font-weight:normal}
 h3 span {color:#d72a18}
 h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bottom:18px}
-
-/*.movie-title {
-    overflow:hidden;
-    height:30px;
-    padding-left:10px;
-    font-size:20px;
-    line-height:1.5em;
-    color:#ffffff;
-    background:url(/static/images/film-header-tail.gif) repeat-x left top;
-    margin-right:auto;
-    margin-left:auto;
-}
-.movie-title .left {width:5px;height:30px;margin-right:-15px;float:left;background:url(/static/images/film-header-left.gif) no-repeat left top;}
-.movie-title .right {width:5px;height:30px;margin-left:-15px;float:right;background:url(/static/images/film-header-right.gif) no-repeat right top;}
-*/
+h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bottom:5px}
 
 .movie-title {
     display:block;
     float:left;
     background:url(/static/images/film-header-right.gif) no-repeat right top;
     color:#ffffff;
-    line-height:1em;
-    width:710px;
+    font-size:18px;
+    width:700px;
 }
 .movie-title span {
     display:block;
@@ -111,7 +97,7 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
     display:block;
     background:url(/static/images/film-header-tail.gif) repeat-x left top;
     padding:8px 15px;
-    width:670px;
+    width:660px;
 }
 
 .link1 {display:block;float:left;background:url(/static/images/link1-right.png) no-repeat right top;color:#fff;text-decoration:none;line-height:1em;cursor:pointer}
@@ -153,5 +139,6 @@ h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bo
 #page1 #content .box {margin:0}
 #page1 #header .row-2 ul li a {height:56px}
 #page1 #header .row-2 ul li.last a:hover {position:relative;z-index:2}
-#scraper {margin:0;width:120px;float:right;padding-top:50px;padding-bottom:25px;}
-#adcontent {width:710px;float:left;clear:left;padding-right:10px;}
+#scraper {margin:0;width:120px;float:right;}
+#scraper ins {padding-bottom:10px !important;}
+#adcontent {width:700px;float:left;clear:left;padding-right:20px;}
