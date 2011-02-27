@@ -66,13 +66,11 @@ class ShowingNowHandler(BaseHandler):
 
     def get(self):
         action = self.get_argument("action")
-        print action
         if action == "store":
-            print "storing"
             imdbKey = self.get_argument("id")
             ia = imdb.IMDb('http')
             movie = ia.get_movie(imdbKey)
-            print movie
+            print movie.asXML()
         
 class PopulateHandler(BaseHandler):
     """Populates default movie database objects"""
