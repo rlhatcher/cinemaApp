@@ -8,7 +8,7 @@ import tornado.web
 import tornado.wsgi
 import unicodedata
 import wsgiref.handlers
-# import imdb
+import imdb
 
 import traceback 
 
@@ -60,6 +60,19 @@ class HomeHandler(BaseHandler):
     def get(self):
 
         self.render("ic/home.html")
+        
+class ShowingNowHandler(BaseHandler):
+    """Manages Showing now films"""
+
+    def get(self):
+        action = self.get_argument("action")
+        print action
+        if action == "store":
+            print "storing"
+            imdbKey = self.get_argument("id")
+            ia = imdb.IMDb('http')
+            movie = ia.get_movie(imdbKey)
+            print movie
         
 class PopulateHandler(BaseHandler):
     """Populates default movie database objects"""
@@ -180,6 +193,7 @@ application = tornado.wsgi.WSGIApplication([
     (r"/populate", PopulateHandler),
     (r"/purge", PurgeHandler),
     (r"/cms", CmsHandler),
+    (r"/showingNow", ShowingNowHandler),
 ], **settings)
 
 application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
