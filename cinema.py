@@ -20,6 +20,7 @@ class Movie(db.Model):
     title = db.StringProperty()
     coverURL = db.StringProperty()
     plotOutline = db.StringProperty()
+    plot = db.TextProperty()
     category = db.CategoryProperty()
 
 def administrator(method):
@@ -62,15 +63,49 @@ class HomeHandler(BaseHandler):
         self.render("ic/home.html")
         
 class ShowingNowHandler(BaseHandler):
-    """Manages Showing now films"""
+    """Manages Showing now films http://127.0.0.1:8000/showingNow?action=store&id=1504320 """
 
+    def _findPlot(self, movie):
+        plot = movie.get('plot')
+        if not plot:
+            plot = movie.get('plot outline')
+            if plot:
+                plot = [plot]
+        if plot:
+            plot = plot[0]
+            i = plot.find('::')
+            if i != -1:
+                plot = plot[:i]
+        return plot
+                
     def get(self):
         action = self.get_argument("action")
         if action == "store":
             imdbKey = self.get_argument("id")
             ia = imdb.IMDb('http')
-            movie = ia.get_movie(imdbKey)
-            print movie.asXML()
+            imdbMovie = ia.get_movie(imdbKey)
+            # print "id"
+            # print imdbMovie.movieID
+            # print "title:" 
+            # print imdbMovie.get('long imdb canonical title')
+            # print "plot summary"
+            # print imdbMovie.get('plot outline')
+            # print "plot:"
+            # print self._findPlot(imdbMovie)
+            # print "Poster URL:"
+            # print imdbMovie.get('full-size cover url')
+            # print imdbMovie.asXML()
+            
+            movie = Movie(key_name = imdbMovie.movieID,
+                          imdbID = imdbMovie.movieID,
+                          title = imdbMovie.get('long imdb canonical title'),
+                          plotOutline = imdbMovie.get('plot outline'),
+                          plot = self._findPlot(imdbMovie),
+                          coverURL = imdbMovie.get('full-size cover url'),
+                          category = db.Category("Showing Now"))
+            
+            movie.put()
+            
         
 class PopulateHandler(BaseHandler):
     """Populates default movie database objects"""
