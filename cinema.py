@@ -14,10 +14,13 @@ import traceback
 
 from google.appengine.api import users
 from google.appengine.ext import db
+from google.appengine.api import urlfetch
+from google.appengine.api import images
 
 class Movie(db.Model):
     imdbID = db.StringProperty()
     title = db.StringProperty()
+    picture = db.BlobProperty(default=None)
     coverURL = db.StringProperty()
     plotOutline = db.StringProperty()
     plot = db.TextProperty()
@@ -95,6 +98,13 @@ class ShowingNowHandler(BaseHandler):
             # print "Poster URL:"
             # print imdbMovie.get('full-size cover url')
             # print imdbMovie.asXML()
+            pictureFile = urlfetch.Fetch(imdbMovie.get('full-size cover url')).content
+            # file = open("test.jpg", "rw")
+            # file.write(pictureFile)
+            # file.close()
+
+            self.set_header("Content-Type", "image/jpeg")
+            self.write(pictureFile)
             
             movie = Movie(key_name = imdbMovie.movieID,
                           imdbID = imdbMovie.movieID,
@@ -102,11 +112,32 @@ class ShowingNowHandler(BaseHandler):
                           plotOutline = imdbMovie.get('plot outline'),
                           plot = self._findPlot(imdbMovie),
                           coverURL = imdbMovie.get('full-size cover url'),
+                          picture = db.Blob(pictureFile),
                           category = db.Category("Showing Now"))
-            
             movie.put()
-            
+        if action == "display":
+            ia = imdb.IMDb('http')
+            imdbMovie = ia.get_movie(self.get_argument("id"))
+            print imdbMovie.asXML()
         
+class ImageHandler(BaseHandler):
+
+    def get(self):
+        id = self.get_argument('id')
+        newWidth = self.get_argument('width', 0)
+
+        result = db.GqlQuery("SELECT * FROM Movie WHERE imdbID = :1 LIMIT 1",id).fetch(1)
+        movie = result[0]
+        picture = movie.picture
+        
+        if newWidth > 0:
+            image = images.Image(picture)
+            image.resize(int(newWidth))
+            picture = image.execute_transforms(output_encoding=images.JPEG)
+            
+        self.set_header("Content-Type", "image/jpeg")
+        self.write(str(picture))
+                    
 class PopulateHandler(BaseHandler):
     """Populates default movie database objects"""
     def get(self):
@@ -227,6 +258,7 @@ application = tornado.wsgi.WSGIApplication([
     (r"/purge", PurgeHandler),
     (r"/cms", CmsHandler),
     (r"/showingNow", ShowingNowHandler),
+    (r"/image", ImageHandler),
 ], **settings)
 
 application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
