@@ -41,13 +41,14 @@ ul, ol {list-style:none}
 .movies li img {position:relative;padding-bottom:0px;width:244px}
 .movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;color:#bfbfbf;font-size:.9em}
 .movies li p span {color:#fff}
-.movie-detail {width:100%;position:relative;margin:15px 0;}
+.movie-detail {width:100%;position:relative;margin:15px 0 30px 0;}
 .movie-detail p {color:#bfbfbf;line-height:1.5em;font-size:1em;}
 .movie-detail h4 {color:#d72a18;font-size:20px;margin:10px 0;}
-.movie-detail h5 {padding-right:43px !important;padding-right:40px:color:#bfbfbf;}
+.movie-detail h5 {padding-right:43px !important;color:#bfbfbf;font-size:1em;padding-left:80px;text-indent:-80px}
 .movie-detail h5 span {float:left;width:80px !important;width:77px;color:#d72a18;}
-#times {height:185px;}
-#times p {padding-left:180px;margin:0;color:#ffffff;}
+#times {height:185px;padding-left:180px}
+#times h5 {padding-left:180px;}
+#times h5 span {text-indent:-180px;color:#bfbfbf;}
 .list {margin-top:-30px}
 .list li {width:100%;overflow:hidden;vertical-align:top;line-height:1.714em;padding-top:40px}
 .list li img {float:left;margin:-10px 20px 0 0}

@@ -1,15 +1,18 @@
 <div class="wrapper"><div class="movie-title"><span><span>{{ movie.title }}</span></span></div></div>
-<!-- <div class="movie-title">{{ movie.title }}<div class="left"></div><div class="right"></div></div> -->
 <div class="movie-detail" style="background-image:url(/image?id={{ movie.imdbID }}&amp;width=125); background-size: 125px; background-repeat: no-repeat;">
 <div id="times">
-    <p>Tuesday 10 ish oclock</p>
-    <p>Tuesday 11 ish oclock</p>
-    <p>Tuesday 12 ish oclock</p>
+    <h5><span>Monday 3rd February</span> 15:00, 20:00</h5>
+    <h5><span>Tuesday 4th February</span> 15:00, 16:00, 17:00, 18:00, 19:00, 20:00</h5>
+    <h5><span>Wednesday 5th February</span> 15:00, 20:00</h5>
+    <h5><span>Thursday 6th February</span> 15:00, 20:00</h5>
+    <h5><span>Friday 7th February</span> 15:00, 20:00</h5>
+    <h5><span>Saturday 8th February</span> 15:00, 17:00, 20:00</h5>
+    <h5><span>Sunday 9th February</span> 15:00, 20:00</h5>
 </div>
 <h4>Storyline</h4>
 <p>{{ movie.plot }}</p>
-<h5><span>Director:</span>Tom Hooper</h5>
-<h5><span>Writer:</span>David Seidler (screenplay)</h5>
-<h5><span>Stars:</span>Colin Firth, Geoffrey Rush and Helena Bonham Carter</h5>
+<h5><span>Director:</span>{{ movie.director }}</h5>
+<h5><span>Writer:</span>{{ movie.writer }}</h5>
+<h5><span>Cast:</span>{{ movie.cast }}</h5>
 </div>
 

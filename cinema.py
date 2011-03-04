@@ -10,8 +10,6 @@ import unicodedata
 import wsgiref.handlers
 import imdb
 
-import traceback 
-
 from google.appengine.api import users
 from google.appengine.ext import db
 from google.appengine.api import urlfetch
@@ -20,10 +18,14 @@ from google.appengine.api import images
 class Movie(db.Model):
     imdbID = db.StringProperty()
     title = db.StringProperty()
+    year = db.StringProperty()
     picture = db.BlobProperty(default=None)
     coverURL = db.StringProperty()
     plotOutline = db.StringProperty()
     plot = db.TextProperty()
+    director = db.TextProperty()
+    writer = db.TextProperty()
+    cast = db.TextProperty()
     category = db.CategoryProperty()
 
 def administrator(method):
@@ -59,15 +61,12 @@ class BaseHandler(tornado.web.RequestHandler):
         return tornado.web.RequestHandler.render_string(
             self, template_name, users=users, **kwargs)
 
-
 class HomeHandler(BaseHandler):
     def get(self):
-
         self.render("ic/home.html")
-        
+
 class ImdbHandler(BaseHandler):
     """Manages Showing now films http://127.0.0.1:8000/showingNow?action=store&id=1504320 """
-
     def _findPlot(self, movie):
         plot = movie.get('plot')
         if not plot:
@@ -80,7 +79,16 @@ class ImdbHandler(BaseHandler):
             if i != -1:
                 plot = plot[:i]
         return plot
-                
+
+    def _nameAndRole(self, personList, joiner=u', '):
+        """Build a pretty string with name and role."""
+        nl = []
+        for person in personList:
+            n = person.get('name', u'')
+            if person.currentRole: n += u' (%s)' % person.currentRole
+            nl.append(n)
+        return joiner.join(nl)
+
     def get(self):
         action = self.get_argument("action")
         imdbKey = self.get_argument("id")
@@ -91,24 +99,36 @@ class ImdbHandler(BaseHandler):
             imdbMovie = ia.get_movie(imdbKey)
             pictureFile = urlfetch.Fetch(imdbMovie.get('full-size cover url')).content
 
+            # Make all our images 500 pixels wide to avoid storing giant image blobs
+            image = images.Image(pictureFile)
+            image.resize(500)
+            pictureFile = image.execute_transforms(output_encoding=images.JPEG)
+
             self.set_header("Content-Type", "image/jpeg")
             self.write(pictureFile)
+            
+            cast = imdbMovie.get('cast')
+            cast = cast[:5]
             
             movie = Movie(key_name = imdbMovie.movieID,
                           imdbID = imdbMovie.movieID,
                           title = imdbMovie.get('long imdb title'),
+                          year = str(imdbMovie.get('year')),
                           plotOutline = imdbMovie.get('plot outline'),
                           plot = self._findPlot(imdbMovie),
                           coverURL = imdbMovie.get('full-size cover url'),
                           picture = db.Blob(pictureFile),
+                          director = self._nameAndRole(imdbMovie.get('director')),
+                          writer = self._nameAndRole(imdbMovie.get('writer')),
+                          cast = self._nameAndRole(cast),
                           category = db.Category(category))
             movie.put()
-            
+
         if action == "display":
             ia = imdb.IMDb('http')
             imdbMovie = ia.get_movie(self.get_argument("id"))
             print imdbMovie.asXML()
-        
+
 class ImageHandler(BaseHandler):
 
     def get(self):
@@ -118,40 +138,38 @@ class ImageHandler(BaseHandler):
         result = db.GqlQuery("SELECT * FROM Movie WHERE imdbID = :1 LIMIT 1",id).fetch(1)
         movie = result[0]
         picture = movie.picture
-        
+
         if newWidth > 0:
             image = images.Image(picture)
             image.resize(int(newWidth))
             picture = image.execute_transforms(output_encoding=images.JPEG)
-            
+
         self.set_header("Content-Type", "image/jpeg")
         self.write(str(picture))
 
 class PurgeHandler(BaseHandler):
     """Remove all movies"""
     def get(self):
-        
         movies = db.GqlQuery("SELECT * FROM Movie")
         for movie in movies:
             movie.delete()
-        
+
 class CmsHandler(BaseHandler):
     """Fire up the CMS application"""
     def get(self):
-        
         self.redirect("/static/cinemaCMS.html")
 
 class rcfHomeHandler(BaseHandler):
     def get(self):
         movies = db.GqlQuery("SELECT * FROM Movie WHERE category='SN' LIMIT 3")
         self.render("rcfHome.html", movies=movies)
-        
+
 class rcfShowingNowHandler(BaseHandler):
     """Display the Showing Now page for the Royal Cinema"""
     def get(self):
         movies = db.GqlQuery("SELECT * FROM Movie WHERE category='SN'")
         self.render("rcfShowingNow.html", movies=movies)
-                                
+
 class rcfComingSoonHandler(BaseHandler):
     """Display the Coming Soon page for the Royal Cinema"""
     def get(self):
