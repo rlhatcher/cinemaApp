@@ -65,7 +65,7 @@ class HomeHandler(BaseHandler):
 
         self.render("ic/home.html")
         
-class ShowingNowHandler(BaseHandler):
+class ImdbHandler(BaseHandler):
     """Manages Showing now films http://127.0.0.1:8000/showingNow?action=store&id=1504320 """
 
     def _findPlot(self, movie):
@@ -83,38 +83,27 @@ class ShowingNowHandler(BaseHandler):
                 
     def get(self):
         action = self.get_argument("action")
+        imdbKey = self.get_argument("id")
+        category = self.get_argument("cat", "SN")
+
         if action == "store":
-            imdbKey = self.get_argument("id")
             ia = imdb.IMDb('http')
             imdbMovie = ia.get_movie(imdbKey)
-            # print "id"
-            # print imdbMovie.movieID
-            # print "title:" 
-            # print imdbMovie.get('long imdb canonical title')
-            # print "plot summary"
-            # print imdbMovie.get('plot outline')
-            # print "plot:"
-            # print self._findPlot(imdbMovie)
-            # print "Poster URL:"
-            # print imdbMovie.get('full-size cover url')
-            # print imdbMovie.asXML()
             pictureFile = urlfetch.Fetch(imdbMovie.get('full-size cover url')).content
-            # file = open("test.jpg", "rw")
-            # file.write(pictureFile)
-            # file.close()
 
             self.set_header("Content-Type", "image/jpeg")
             self.write(pictureFile)
             
             movie = Movie(key_name = imdbMovie.movieID,
                           imdbID = imdbMovie.movieID,
-                          title = imdbMovie.get('long imdb canonical title'),
+                          title = imdbMovie.get('long imdb title'),
                           plotOutline = imdbMovie.get('plot outline'),
                           plot = self._findPlot(imdbMovie),
                           coverURL = imdbMovie.get('full-size cover url'),
                           picture = db.Blob(pictureFile),
-                          category = db.Category("Showing Now"))
+                          category = db.Category(category))
             movie.put()
+            
         if action == "display":
             ia = imdb.IMDb('http')
             imdbMovie = ia.get_movie(self.get_argument("id"))
@@ -137,61 +126,6 @@ class ImageHandler(BaseHandler):
             
         self.set_header("Content-Type", "image/jpeg")
         self.write(str(picture))
-                    
-class PopulateHandler(BaseHandler):
-    """Populates default movie database objects"""
-    def get(self):
-        
-        movie = Movie(key_name = "1504320",
-                      imdbID = "1504320",
-                      title = "The King's Speech",
-                      plotOutline = "The story of King George VI of Britain, his impromptu ascension to the throne and the speech therapist who helped the unsure monarch become worthy of it.",
-                      coverURL = "/static/images/1504320_250.jpg",
-                      category = db.Category("Showing Now"))
-                      
-        movie.put()
-        
-        movie = Movie(key_name = "0076759",
-                      imdbID = "0076759",
-                      title = "Star Wars",
-                      plotOutline = "Luke Skywalker leaves his home planet, teams up with other rebels, and tries to save Princess Leia from the evil clutches of Darth Vader.",
-                      coverURL = "/static/images/0076759_250.jpg",
-                      category = db.Category("Showing Now"))
-        movie.put()
-
-        movie = Movie(key_name = "0062622",
-                      imdbID = "0062622",
-                      title = "2001: A Space Odyssey",
-                      plotOutline = "Mankind finds a mysterious, obviously artificial, artifact buried on the moon and, with the intelligent computer HAL, sets off on a quest.",
-                      coverURL = "/static/images/0062622_250.jpg",
-                      category = db.Category("Showing Now"))
-                      
-        movie.put()
-        movie = Movie(key_name = "0947798",
-                      imdbID = "0947798",
-                      title = "The Black Swan",
-                      plotOutline = "A ballet dancer wins the lead in 'Swan Lake' and is perfect for the role of the delicate White Swan - Princess Odette - but slowly loses her mind as she becomes more and more like Odette's evil sister, Odile, the Black Swan.",
-                      coverURL = "/static/images/0947798_250.jpg",
-                      category = db.Category("Coming Soon"))
-                      
-        movie.put()
-        
-        movie = Movie(key_name = "0120737",
-                      imdbID = "0120737",
-                      title = "The Lord of the Rings: The Fellowship of the Ring",
-                      plotOutline = "In a small village in the Shire a young Hobbit named Frodo has been entrusted with an ancient Ring. Now he must embark on an Epic quest to the Cracks of Doom in order to destroy it.",
-                      coverURL = "/static/images/0120737_250.jpg",
-                      category = db.Category("Coming Soon"))
-        movie.put()
-
-        movie = Movie(key_name = "1285016",
-                      imdbID = "1285016",
-                      title = "The Social Network",
-                      plotOutline = "A chronicle of the founding of Facebook, the social-networking Web site.",
-                      coverURL = "/static/images/1285016_250.jpg",
-                      category = db.Category("Coming Soon"))
-                      
-        movie.put()
 
 class PurgeHandler(BaseHandler):
     """Remove all movies"""
@@ -209,19 +143,19 @@ class CmsHandler(BaseHandler):
 
 class rcfHomeHandler(BaseHandler):
     def get(self):
-        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='Showing Now' LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='SN' LIMIT 3")
         self.render("rcfHome.html", movies=movies)
         
 class rcfShowingNowHandler(BaseHandler):
     """Display the Showing Now page for the Royal Cinema"""
     def get(self):
-        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='Showing Now' LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='SN'")
         self.render("rcfShowingNow.html", movies=movies)
                                 
 class rcfComingSoonHandler(BaseHandler):
-    """Display the Showing Now page for the Royal Cinema"""
+    """Display the Coming Soon page for the Royal Cinema"""
     def get(self):
-        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='Coming Soon' LIMIT 3")
+        movies = db.GqlQuery("SELECT * FROM Movie WHERE category='CS'")
         self.render("rcfComingSoon.html", movies=movies)
 
 class rcfAboutUsHandler(BaseHandler):
@@ -254,10 +188,9 @@ settings = {
 
 application = tornado.wsgi.WSGIApplication([
     (r"/", HomeHandler),
-    (r"/populate", PopulateHandler),
     (r"/purge", PurgeHandler),
     (r"/cms", CmsHandler),
-    (r"/showingNow", ShowingNowHandler),
+    (r"/imdb", ImdbHandler),
     (r"/image", ImageHandler),
 ], **settings)
 
@@ -269,6 +202,7 @@ application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
     (r"/comingSoon", rcfComingSoonHandler),
     (r"/aboutUs", rcfAboutUsHandler),
     (r"/contactUs", rcfContactUsHandler),
+    (r"/image", ImageHandler),
     ])
 
 def main():

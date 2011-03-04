@@ -39,10 +39,10 @@ ul, ol {list-style:none}
 .movies li.last {margin-right:0}
 .movies li.clear {float:none;width:auto;margin:0;font-size:0;line-height:0}
 .movies li img {position:relative;padding-bottom:0px;width:244px}
-.movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;color:#bfbfbf;}
+.movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;color:#bfbfbf;font-size:.9em}
 .movies li p span {color:#fff}
 .movie-detail {width:100%;position:relative;margin:15px 0;}
-.movie-detail p {color:#bfbfbf;line-height:1.5em;font-size:15px;}
+.movie-detail p {color:#bfbfbf;line-height:1.5em;font-size:1em;}
 .movie-detail h4 {color:#d72a18;font-size:20px;margin:10px 0;}
 .movie-detail h5 {padding-right:43px !important;padding-right:40px:color:#bfbfbf;}
 .movie-detail h5 span {float:left;width:80px !important;width:77px;color:#d72a18;}
