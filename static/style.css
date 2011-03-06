@@ -1,7 +1,7 @@
 /* TAGS */
 * {margin:0;padding:0}
 html, body {min-width:940px} 
-body {background:#000;font-family:Arial,Helvetica,sans-serif;font-size:100%;line-height:1em;color:#858585}
+body {background:#000;font-family:Arial,Helvetica,sans-serif;font-size:100%;line-height:1em;color:#bfbfbf}
 object {vertical-align:top;outline:none}
 input, textarea, select {font-family:Arial,Helvetica,sans-serif;font-size:1em;vertical-align:middle;font-weight:normal}
 fieldset {border:0}
@@ -39,16 +39,16 @@ ul, ol {list-style:none}
 .movies li.last {margin-right:0}
 .movies li.clear {float:none;width:auto;margin:0;font-size:0;line-height:0}
 .movies li img {position:relative;padding-bottom:0px;width:244px}
-.movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;color:#bfbfbf;font-size:.9em}
+.movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;font-size:.9em}
 .movies li p span {color:#fff}
-.movie-detail {width:100%;position:relative;margin:15px 0 30px 0;}
-.movie-detail p {color:#bfbfbf;line-height:1.5em;font-size:1em;}
-.movie-detail h4 {color:#d72a18;font-size:20px;margin:10px 0;}
-.movie-detail h5 {padding-right:43px !important;color:#bfbfbf;font-size:1em;padding-left:80px;text-indent:-80px}
-.movie-detail h5 span {float:left;width:80px !important;width:77px;color:#d72a18;}
+.movie-detail {width:100%;position:relative;margin:15px 0 30px 0;color:#ffffff}
+.movie-detail p {line-height: 1em; font-size:1em;}
+.movie-detail h4 {font-size:20px;margin:10px 0;color: white; }
+.movie-detail h5 {padding-right:43px !important;font-size:1em;padding-left:80px;text-indent:-80px;color: white; }
+.movie-detail h5 span {float:left;width:80px !important;width:77px;color:#ffffff;}
 #times {height:185px;padding-left:180px}
 #times h5 {padding-left:180px;}
-#times h5 span {text-indent:-180px;color:#bfbfbf;}
+#times h5 span {text-indent:-180px;}
 .list {margin-top:-30px}
 .list li {width:100%;overflow:hidden;vertical-align:top;line-height:1.714em;padding-top:40px}
 .list li img {float:left;margin:-10px 20px 0 0}
@@ -63,9 +63,9 @@ ul, ol {list-style:none}
 .img-box1.alt img {margin-top:0}
 .img-box1 img {float:left;margin:-10px 20px 0 0}
 p {margin-bottom:15px;line-height:1.714em}
-.p1 {margin-bottom:23px}
 .address {width:100%;overflow:hidden;line-height:1.714em}
 .address span {color:#fff}
+.p1 {margin-bottom:23px}
 .address .fleft {padding-right:43px !important;padding-right:40px}
 .address .fleft span {float:left;width:80px !important;width:77px}
 /* TXT, LINKS, LINES, TITLES */
@@ -76,7 +76,7 @@ h2 span {display:block;font-size:40px;color:#2c6d9a}
 h3 {font-size:30px;line-height:1.2em;color:#bfbfbf;margin-bottom:15px}
 h3 b {color:#e1e1e1;font-weight:normal}
 h3 span {color:#d72a18}
-h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#bfbfbf;margin-bottom:18px}
+h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#ffffff;margin-bottom:18px}
 h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bottom:5px}
 
 .movie-title {
@@ -132,7 +132,7 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 .link2 {
 	display:block;
 	float:left;
-	background:url(/static/images/film-header-right.gif) no-repeat right top;
+	background:url(/static/images/link2-right.gif) no-repeat right top;
 	color:#ffffff;
 	cursor:pointer;
 	text-decoration:none;
@@ -143,18 +143,18 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 	display:block;
 	float:left;
 	padding:0 5px;
-	background:url(/static/images/film-header-left.gif) no-repeat left top
+	background:url(/static/images/link2-left.gif) no-repeat left top
 }
 .link2 span span {
 	display:block;
-	background:url(/static/images/film-header-tail.gif) repeat-x left top;
+	background:url(/static/images/link2-tail.gif) repeat-x left top;
 	padding:9px 15px 10px 15px
 }
 .link3 {
 	display:block;
 	float:left;
-	background:url(/static/images/button-yellow-right.png) no-repeat right top;
-	color:#754c24;
+	background:url(/static/images/orange-right.png) no-repeat right top;
+	color:#ffffff;
 	cursor:pointer;
 /*	font-weight: bolder;*/
 	text-decoration:none;
@@ -169,11 +169,11 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 	display:block;
 	float:left;
 	padding:0 5px;
-	background:url(/static/images/button-yellow-left.png) no-repeat left top
+	background:url(/static/images/orange-left.png) no-repeat left top
 }
 .link3 span span {
 	display:block;
-	background:url(/static/images/button-yellow-tail.png) repeat-x left top;
+	background:url(/static/images/orange-tail.png) repeat-x left top;
 	padding:9px 15px 10px 15px
 }
 
