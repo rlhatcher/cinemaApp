@@ -154,8 +154,9 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 	display:block;
 	float:left;
 	background:url(/static/images/button-yellow-right.png) no-repeat right top;
-	color:#ffffff;
+	color:#754c24;
 	cursor:pointer;
+/*	font-weight: bolder;*/
 	text-decoration:none;
 	line-height:1em;
 	margin-right: 80px;
