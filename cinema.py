@@ -20,13 +20,24 @@ class Movie(db.Model):
     title = db.StringProperty()
     year = db.StringProperty()
     picture = db.BlobProperty(default=None)
-    coverURL = db.StringProperty()
     plotOutline = db.StringProperty()
     plot = db.TextProperty()
     director = db.TextProperty()
     writer = db.TextProperty()
     cast = db.TextProperty()
     category = db.CategoryProperty()
+    certificates = db.StringListProperty()
+    
+    def cert(self, country):
+        for cert in self.certificates:
+            i = cert.find('::')
+            if i != -1:
+                cert = cert[:i]
+            i = cert.find(country)
+            if i != -1:
+                j = cert.find(':')
+                return cert[j+1:]
+        return "Unknown"
 
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
@@ -66,8 +77,9 @@ class HomeHandler(BaseHandler):
         self.render("ic/home.html")
 
 class ImdbHandler(BaseHandler):
-    """Manages Showing now films http://127.0.0.1:8000/showingNow?action=store&id=1504320 """
+    """ Manages Showing now films http://127.0.0.1:8000/showingNow?action=store&id=1504320 """
     def _findPlot(self, movie):
+        """ Find and return the most suitable plot information from a movie """
         plot = movie.get('plot')
         if not plot:
             plot = movie.get('plot outline')
@@ -81,13 +93,29 @@ class ImdbHandler(BaseHandler):
         return plot
 
     def _nameAndRole(self, personList, joiner=u', '):
-        """Build a pretty string with name and role."""
+        """ Build a pretty string with name and role."""
+        if len(personList) == 0:
+            return "Not Available"
+            
         nl = []
         for person in personList:
             n = person.get('name', u'')
             if person.currentRole: n += u' (%s)' % person.currentRole
             nl.append(n)
         return joiner.join(nl)
+
+    def _moviePoster(self, movie):
+        """ Find the best poster for a movie """
+        pictureFile = urlfetch.Fetch(movie.get('full-size cover url')).content
+
+        # If we can't fina a poster then use the not avaiable image
+        if not pictureFile:
+            pictureFile = urlfetch.Fetch('/image/notavailable.jpg').content
+            
+        # Make all our images 500 pixels wide to avoid storing giant image blobs
+        image = images.Image(pictureFile)
+        image.resize(500)
+        return image.execute_transforms(output_encoding=images.JPEG)
 
     def get(self):
         action = self.get_argument("action")
@@ -97,31 +125,23 @@ class ImdbHandler(BaseHandler):
         if action == "store":
             ia = imdb.IMDb('http')
             imdbMovie = ia.get_movie(imdbKey)
-            pictureFile = urlfetch.Fetch(imdbMovie.get('full-size cover url')).content
 
-            # Make all our images 500 pixels wide to avoid storing giant image blobs
-            image = images.Image(pictureFile)
-            image.resize(500)
-            pictureFile = image.execute_transforms(output_encoding=images.JPEG)
-
-            self.set_header("Content-Type", "image/jpeg")
-            self.write(pictureFile)
-            
-            cast = imdbMovie.get('cast')
+            cast = imdbMovie.get('cast', "Not Available")
             cast = cast[:5]
             
             movie = Movie(key_name = imdbMovie.movieID,
                           imdbID = imdbMovie.movieID,
-                          title = imdbMovie.get('long imdb title'),
+                          title = imdbMovie.get('title', u'Not Available'),
                           year = str(imdbMovie.get('year')),
-                          plotOutline = imdbMovie.get('plot outline'),
+                          plotOutline = imdbMovie.get('plot outline', u'Not Available'),
                           plot = self._findPlot(imdbMovie),
-                          coverURL = imdbMovie.get('full-size cover url'),
-                          picture = db.Blob(pictureFile),
+                          picture = db.Blob(self._moviePoster(imdbMovie)),
                           director = self._nameAndRole(imdbMovie.get('director')),
                           writer = self._nameAndRole(imdbMovie.get('writer')),
                           cast = self._nameAndRole(cast),
-                          category = db.Category(category))
+                          certificates  = imdbMovie.get('certificates', u'none'),
+                          category = db.Category(category)
+            )
             movie.put()
 
         if action == "display":
@@ -191,16 +211,22 @@ class FilmModule(tornado.web.UIModule):
         return self.render_string("modules/film.html", movie=movie)
 
 class FilmDetailModule(tornado.web.UIModule):
+        
     def render(self, movie):
         return self.render_string("modules/filmDetail.html", movie=movie)
-
+        
+class AdScraperModule(tornado.web.UIModule):
+    """Google Adsense Scraper Ad"""
+    def render(self):
+        return self.render_string("modules/scraper.html")
+        
 settings = {
     "cinema_name": u"The Royal Cinema",
     "cinema_location": u"Faversham",
     "cinema_title": u"The Royal Cinema Faversham",
     "template_path": os.path.join(os.path.dirname(__file__), "templates"),
     "static_path": os.path.join(os.path.dirname(__file__), "static"),
-    "ui_modules": {"Film": FilmModule,"FilmDetail": FilmDetailModule},
+    "ui_modules": {"Film": FilmModule,"FilmDetail": FilmDetailModule,"AdScraper": AdScraperModule},
     "xsrf_cookies": True,
 }
 

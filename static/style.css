@@ -82,33 +82,100 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 .movie-title {
     display:block;
     float:left;
-    background:url(/static/images/film-header-right.gif) no-repeat right top;
+    background:url(/static/images/film-header-right.gif) no-repeat right center;
     color:#ffffff;
-    font-size:18px;
+    font-size:20px;
+    line-height: 2.5em;
     width:700px;
+    
+}
+.movie-title img {
+	height: 45px;display: inline;float: right;
 }
 .movie-title span {
     display:block;
     float:left;
     padding:0 5px;
-    background:url(/static/images/film-header-left.gif) no-repeat left top;
+    background:url(/static/images/film-header-left.gif) no-repeat left center;
     width:100%;
 }
 .movie-title span span {
     display:block;
-    background:url(/static/images/film-header-tail.gif) repeat-x left top;
-    padding:8px 15px;
+    background:url(/static/images/film-header-tail.gif) repeat-x left center;
+    padding:0px 15px;
     width:660px;
 }
 
-.link1 {display:block;float:left;background:url(/static/images/link1-right.png) no-repeat right top;color:#fff;text-decoration:none;line-height:1em;cursor:pointer}
-.link1:hover span {text-decoration:underline}
-.link1 span {display:block;float:left;padding:0 5px;background:url(/static/images/link1-left.png) no-repeat left top}
-.link1 span span {display:block;background:url(/static/images/link1-tail.gif) repeat-x left top;padding:8px 15px}
-.link2 {display:block;float:left;background:url(/static/images/link2-right.gif) no-repeat right top;color:#fff;cursor:pointer;text-decoration:none;line-height:1em}
+.link1 {
+	display:block;
+	float:left;
+	background:url(/static/images/link1-right.png) no-repeat right top;
+	color:#fff;
+	text-decoration:none;
+	line-height:1em;
+	cursor:pointer
+}
+.link1:hover span {
+	text-decoration:underline
+}
+.link1 span {
+	display:block;
+	float:left;
+	padding:0 5px;
+	background:url(/static/images/link1-left.png) no-repeat left top
+}
+.link1 span span {
+	display:block;
+	background:url(/static/images/link1-tail.gif) repeat-x left top;
+	padding:8px 15px
+}
+.link2 {
+	display:block;
+	float:left;
+	background:url(/static/images/film-header-right.gif) no-repeat right top;
+	color:#ffffff;
+	cursor:pointer;
+	text-decoration:none;
+	line-height:1em;
+}
 .link2:hover span {text-decoration:underline}
-.link2 span {display:block;float:left;padding:0 6px;background:url(/static/images/link2-left.gif) no-repeat left top}
-.link2 span span {display:block;background:url(/static/images/link2-tail.gif) repeat-x left top;padding:9px 15px 10px 15px}
+.link2 span {
+	display:block;
+	float:left;
+	padding:0 5px;
+	background:url(/static/images/film-header-left.gif) no-repeat left top
+}
+.link2 span span {
+	display:block;
+	background:url(/static/images/film-header-tail.gif) repeat-x left top;
+	padding:9px 15px 10px 15px
+}
+.link3 {
+	display:block;
+	float:left;
+	background:url(/static/images/button-yellow-right.png) no-repeat right top;
+	color:#ffffff;
+	cursor:pointer;
+	text-decoration:none;
+	line-height:1em;
+	margin-right: 80px;
+	margin-top: 10px;
+}
+.link3:hover span {
+	text-decoration:underline
+}
+.link3 span {
+	display:block;
+	float:left;
+	padding:0 5px;
+	background:url(/static/images/button-yellow-left.png) no-repeat left top
+}
+.link3 span span {
+	display:block;
+	background:url(/static/images/button-yellow-tail.png) repeat-x left top;
+	padding:9px 15px 10px 15px
+}
+
 .line-hor {overflow:hidden;font-size:0;line-height:0;width:918px;height:8px;margin-left:11px;background:url(/static/images/line-hor.gif) repeat-x left top;z-index:1;position:relative}
 /* BOXES */
 .box {background:#000;width:100%;margin-top:-3px}

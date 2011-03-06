@@ -14,12 +14,19 @@
 		<div class="border-right">
 			<div class="border-left">
 				<div class="inner">
-					<h3>Coming <span>Soon</span></h3><br />
-            		<ul class="list">
-				        {% for movie in movies %}
-				            {{ modules.FilmDetail(movie) }}
+    				<div id="adcontent">
+    					<h3>Coming <span>Soon</span></h3>
+    		        	{% for movie in movies %}
+    		            	{{ modules.FilmDetail(movie) }}
+    		        	{% end %}
+                	</div>
+    				<div id="scraper">
+						{{ modules.AdScraper() }}
+					    {% if movies.count() > 1 %}
+							<br />
+					        {{ modules.AdScraper() }}
 				        {% end %}
-            		</ul>
+    				</div>
 				</div>
 			</div>
 		</div>
