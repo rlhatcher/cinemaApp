@@ -8,8 +8,9 @@ import tornado.web
 import tornado.wsgi
 import unicodedata
 import wsgiref.handlers
-import imdb
 
+from imdb import Person
+from imdb import IMDb
 from google.appengine.api import users
 from google.appengine.ext import db
 from google.appengine.api import urlfetch
@@ -19,15 +20,15 @@ class Movie(db.Model):
     imdbID = db.StringProperty()
     title = db.StringProperty()
     year = db.StringProperty()
-    picture = db.BlobProperty(default=None)
     plotOutline = db.StringProperty()
     plot = db.TextProperty()
-    director = db.TextProperty()
-    writer = db.TextProperty()
-    cast = db.TextProperty()
-    category = db.CategoryProperty()
+    picture = db.BlobProperty(default=None)
+    director = db.StringListProperty()
+    writer = db.StringListProperty()
+    cast = db.StringListProperty()
     certificates = db.StringListProperty()
-    
+    category = db.CategoryProperty()
+        
     def cert(self, country):
         for cert in self.certificates:
             i = cert.find('::')
@@ -38,6 +39,11 @@ class Movie(db.Model):
                 j = cert.find(':')
                 return cert[j+1:]
         return "Unknown"
+
+    def cast(self, limit=5, joiner=u', '):
+        if len(self.cast) == 0 : return "Not Available"
+        cast = cast[:limit]
+        return joiner.join(cast)
 
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
@@ -92,18 +98,6 @@ class ImdbHandler(BaseHandler):
                 plot = plot[:i]
         return plot
 
-    def _nameAndRole(self, personList, joiner=u', '):
-        """ Build a pretty string with name and role."""
-        if len(personList) == 0:
-            return "Not Available"
-            
-        nl = []
-        for person in personList:
-            n = person.get('name', u'')
-            if person.currentRole: n += u' (%s)' % person.currentRole
-            nl.append(n)
-        return joiner.join(nl)
-
     def _moviePoster(self, movie):
         """ Find the best poster for a movie """
         pictureFile = urlfetch.Fetch(movie.get('full-size cover url')).content
@@ -117,29 +111,34 @@ class ImdbHandler(BaseHandler):
         image.resize(500)
         return image.execute_transforms(output_encoding=images.JPEG)
 
+    def _personToString(self, personList):
+        nl = []
+        for person in personList:
+            n = person.get('name', u'')
+            if person.currentRole: n += u' (%s)' % person.currentRole
+            nl.append(n)
+        return nl
+            
     def get(self):
         action = self.get_argument("action")
         imdbKey = self.get_argument("id")
         category = self.get_argument("cat", "SN")
 
         if action == "store":
-            ia = imdb.IMDb('http')
+            ia = IMDb('http')
             imdbMovie = ia.get_movie(imdbKey)
 
-            cast = imdbMovie.get('cast', "Not Available")
-            cast = cast[:5]
-            
             movie = Movie(key_name = imdbMovie.movieID,
                           imdbID = imdbMovie.movieID,
                           title = imdbMovie.get('title', u'Not Available'),
                           year = str(imdbMovie.get('year')),
-                          plotOutline = imdbMovie.get('plot outline', u'Not Available'),
+                          plotOutline = imdbMovie.get('plot outline'),
                           plot = self._findPlot(imdbMovie),
                           picture = db.Blob(self._moviePoster(imdbMovie)),
-                          director = self._nameAndRole(imdbMovie.get('director')),
-                          writer = self._nameAndRole(imdbMovie.get('writer')),
-                          cast = self._nameAndRole(cast),
-                          certificates  = imdbMovie.get('certificates', u'none'),
+                          director = self._personToString(imdbMovie.get('director')),
+                          writer = self._personToString(imdbMovie.get('writer')),
+                          cast = self._personToString(imdbMovie.get('cast')),
+                          certificates  = imdbMovie.get('certificates'),
                           category = db.Category(category)
             )
             movie.put()
