@@ -28,6 +28,7 @@ class Movie(db.Model):
     cast = db.StringListProperty()
     certificates = db.StringListProperty()
     category = db.CategoryProperty()
+    runtimes = db.StringListProperty()
         
     def cert(self, country):
         for cert in self.certificates:
@@ -40,10 +41,23 @@ class Movie(db.Model):
                 return cert[j+1:]
         return "Unknown"
 
-    def cast(self, limit=5, joiner=u', '):
+    def get_cast(self, limit=5, joiner=u', '):
         if len(self.cast) == 0 : return "Not Available"
-        cast = cast[:limit]
+        cast = self.cast[:limit]
         return joiner.join(cast)
+
+    def get_director(self, limit=5, joiner=u', '):
+        if len(self.director) == 0 : return "Not Available"
+        director = self.director[:limit]
+        return joiner.join(director)
+
+    def get_writer(self, limit=5, joiner=u', '):
+        if len(self.writer) == 0 : return "Not Available"
+        writer = self.writer[:limit]
+        return joiner.join(writer)
+        
+    def get_runtime(self):
+        return self.runtimes[0]
 
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
@@ -139,14 +153,16 @@ class ImdbHandler(BaseHandler):
                           writer = self._personToString(imdbMovie.get('writer')),
                           cast = self._personToString(imdbMovie.get('cast')),
                           certificates  = imdbMovie.get('certificates'),
-                          category = db.Category(category)
+                          category = db.Category(category),
+                          runtimes = imdbMovie.get('runtimes')
             )
             movie.put()
 
         if action == "display":
-            ia = imdb.IMDb('http')
+            ia = IMDb('http')
             imdbMovie = ia.get_movie(self.get_argument("id"))
-            print imdbMovie.asXML()
+            self.set_header("Content-Type", "text/xml")
+            self.write(imdbMovie.asXML())
 
 class ImageHandler(BaseHandler):
 
@@ -218,6 +234,11 @@ class AdScraperModule(tornado.web.UIModule):
     """Google Adsense Scraper Ad"""
     def render(self):
         return self.render_string("modules/scraper.html")
+
+class FilmComingModule(tornado.web.UIModule):
+    """Module for Coming Soon film details"""
+    def render(self, movie):
+        return self.render_string("modules/filmComing.html", movie=movie)
         
 settings = {
     "cinema_name": u"The Royal Cinema",
@@ -225,7 +246,12 @@ settings = {
     "cinema_title": u"The Royal Cinema Faversham",
     "template_path": os.path.join(os.path.dirname(__file__), "templates"),
     "static_path": os.path.join(os.path.dirname(__file__), "static"),
-    "ui_modules": {"Film": FilmModule,"FilmDetail": FilmDetailModule,"AdScraper": AdScraperModule},
+    "ui_modules": {
+        "Film": FilmModule,
+        "FilmDetail": FilmDetailModule,
+        "AdScraper": AdScraperModule,
+        "FilmComing": FilmComingModule
+    },
     "xsrf_cookies": True,
 }
 

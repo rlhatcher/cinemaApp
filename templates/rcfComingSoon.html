@@ -17,14 +17,14 @@
     				<div id="adcontent">
     					<h3>Coming <span>Soon</span></h3>
     		        	{% for movie in movies %}
-    		            	{{ modules.FilmDetail(movie) }}
+    		            	{{ modules.FilmComing(movie) }}
     		        	{% end %}
                 	</div>
     				<div id="scraper">
-						{{ modules.AdScraper() }}
+                        {{ modules.AdScraper() }}
 					    {% if movies.count() > 1 %}
 							<br />
-					        {{ modules.AdScraper() }}
+                            {{ modules.AdScraper() }}
 				        {% end %}
     				</div>
 				</div>

@@ -13,8 +13,8 @@
 </div>
 <h4>Storyline</h4>
 <p>{{ movie.plot }}</p>
-<h5><span>Director:</span>{{ movie.director }}</h5>
-<h5><span>Writer:</span>{{ movie.writer }}</h5>
-<h5><span>Cast:</span>{{ movie.cast }}</h5>
+<h5><span>Director:</span>{{ movie.get_director() }}</h5>
+<h5><span>Writer:</span>{{ movie.get_writer() }}</h5>
+<h5><span>Cast:</span>{{ movie.get_cast() }}</h5>
 </div>
 
