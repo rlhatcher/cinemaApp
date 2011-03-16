@@ -38,18 +38,21 @@ ul, ol {list-style:none}
 .movies li {float:left;width:244px;margin-right:18px;margin-left:18px;}
 .movies li.last {margin-right:0}
 .movies li.clear {float:none;width:auto;margin:0;font-size:0;line-height:0}
-.movies li img {position:relative;padding-bottom:0px;width:244px}
+.movies li img {position:relative;padding-bottom:0px;width:244px; height: 360px; }
 .movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;font-size:.9em}
 .movies li p span {color:#fff}
+.movies h4 {
+	height: 2em;;
+}
 .movie-detail {width:100%;position:relative;margin:15px 0 30px 0;color:#ffffff}
 .movie-detail p {line-height: 1em; font-size:1em;}
 .movie-detail h4 {font-size:20px;margin:10px 0;color: white; }
 .movie-detail h5 {padding-right:43px !important;font-size:1em;padding-left:80px;text-indent:-80px;color: white; }
 .movie-detail h5 span {float:left;width:80px !important;width:77px;color:#ffffff;}
-#times {height:185px;padding-left:180px;overflow: hidden; }
+#times {height:185px;padding-left:180px;overflow: visible; }
 #times h5 {padding-left:180px;}
 #times h5 span {text-indent:-180px;}
-#times-detail {height:185px;padding-left:180px;overflow: hidden; }
+#times-detail {height:185px;padding-left:180px;overflow: visible; }
 #times-detail h5 {padding-left:100px;}
 #times-detail h5 span {text-indent:-100px;}
 .list {margin-top:-30px}

@@ -29,7 +29,7 @@ class Movie(db.Model):
     certificates = db.StringListProperty()
     category = db.CategoryProperty()
     runtimes = db.StringListProperty()
-        
+
     def cert(self, country):
         for cert in self.certificates:
             i = cert.find('::')
@@ -55,7 +55,7 @@ class Movie(db.Model):
         if len(self.writer) == 0 : return "Not Available"
         writer = self.writer[:limit]
         return joiner.join(writer)
-        
+
     def get_runtime(self):
         return self.runtimes[0]
 
@@ -119,7 +119,7 @@ class ImdbHandler(BaseHandler):
         # If we can't fina a poster then use the not avaiable image
         if not pictureFile:
             pictureFile = urlfetch.Fetch('/image/notavailable.jpg').content
-            
+
         # Make all our images 500 pixels wide to avoid storing giant image blobs
         image = images.Image(pictureFile)
         image.resize(500)
@@ -132,7 +132,7 @@ class ImdbHandler(BaseHandler):
             if person.currentRole: n += u' (%s)' % person.currentRole
             nl.append(n)
         return nl
-            
+
     def get(self):
         action = self.get_argument("action")
         imdbKey = self.get_argument("id")
@@ -226,10 +226,10 @@ class FilmModule(tornado.web.UIModule):
         return self.render_string("modules/film.html", movie=movie)
 
 class FilmDetailModule(tornado.web.UIModule):
-        
+
     def render(self, movie):
         return self.render_string("modules/filmDetail.html", movie=movie)
-        
+
 class AdScraperModule(tornado.web.UIModule):
     """Google Adsense Scraper Ad"""
     def render(self):
@@ -239,7 +239,7 @@ class FilmComingModule(tornado.web.UIModule):
     """Module for Coming Soon film details"""
     def render(self, movie):
         return self.render_string("modules/filmComing.html", movie=movie)
-        
+
 settings = {
     "cinema_name": u"The Royal Cinema",
     "cinema_location": u"Faversham",
