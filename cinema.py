@@ -135,11 +135,11 @@ class ImdbHandler(BaseHandler):
 
     def get(self):
         action = self.get_argument("action")
-        imdbKey = self.get_argument("id")
-        category = self.get_argument("cat", "SN")
 
         if action == "store":
             ia = IMDb('http')
+            imdbKey = self.get_argument("id")
+            category = self.get_argument("cat", "SN")
             imdbMovie = ia.get_movie(imdbKey)
 
             movie = Movie(key_name = imdbMovie.movieID,
@@ -157,6 +157,20 @@ class ImdbHandler(BaseHandler):
                           runtimes = imdbMovie.get('runtimes')
             )
             movie.put()
+
+            self.write(movie)
+            return
+
+        if action == "search":
+            ia = IMDb('http')
+            movies = []
+            title = self.get_argument("title")
+            movies = ia.search_movie(title)
+            titles = dict()
+            for movie in movies:
+                titles[movie.movieID] = movie.get('long imdb canonical title')
+
+            self.write(titles)
 
         if action == "display":
             ia = IMDb('http')
