@@ -1,0 +1,15 @@
+<div class="wrapper"><div class="movie-title"><span><span>{{ movie.title }}<img src="/static/images/UK_{{ movie.cert("UK") }}.png"</img></span></span></div></div>
+<div class="movie-detail" style="background-image:url(/image?id={{ movie.imdbID }}&amp;width=125); background-size: 125px; background-repeat: no-repeat;">
+<div id="times-detail">
+    <h5><span>Director:</span>{{ movie.get_director() }}</h5>
+    <h5><span>Writer:</span>{{ movie.get_writer() }}</h5>
+    <h5><span>Cast:</span>{{ movie.get_cast(10) }}</h5>
+    <h5><span>Runtime:</span>{{ movie.get_runtime() }} min</h5>
+    <a href="#" class="link3"><span><span>View Trailer</span></span></a>
+</div>
+<br />
+<h4>Storyline</h4>
+<p>{{ movie.plot }}</p>
+<!-- <a href="#" class="link3"><span><span>Book Now</span></span></a> -->
+</div>
+

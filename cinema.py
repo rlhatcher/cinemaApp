@@ -8,8 +8,11 @@ import tornado.web
 import tornado.wsgi
 import unicodedata
 import wsgiref.handlers
-import imdb
+import logging
 
+from tornado import escape
+from imdb import Person
+from imdb import IMDb
 from google.appengine.api import users
 from google.appengine.ext import db
 from google.appengine.api import urlfetch
@@ -19,15 +22,16 @@ class Movie(db.Model):
     imdbID = db.StringProperty()
     title = db.StringProperty()
     year = db.StringProperty()
-    picture = db.BlobProperty(default=None)
     plotOutline = db.StringProperty()
     plot = db.TextProperty()
-    director = db.TextProperty()
-    writer = db.TextProperty()
-    cast = db.TextProperty()
-    category = db.CategoryProperty()
+    picture = db.BlobProperty(default=None)
+    director = db.StringListProperty()
+    writer = db.StringListProperty()
+    cast = db.StringListProperty()
     certificates = db.StringListProperty()
-    
+    category = db.CategoryProperty()
+    runtimes = db.StringListProperty()
+
     def cert(self, country):
         for cert in self.certificates:
             i = cert.find('::')
@@ -38,6 +42,24 @@ class Movie(db.Model):
                 j = cert.find(':')
                 return cert[j+1:]
         return "Unknown"
+
+    def get_cast(self, limit=5, joiner=u', '):
+        if len(self.cast) == 0 : return "Not Available"
+        cast = self.cast[:limit]
+        return joiner.join(cast)
+
+    def get_director(self, limit=5, joiner=u', '):
+        if len(self.director) == 0 : return "Not Available"
+        director = self.director[:limit]
+        return joiner.join(director)
+
+    def get_writer(self, limit=5, joiner=u', '):
+        if len(self.writer) == 0 : return "Not Available"
+        writer = self.writer[:limit]
+        return joiner.join(writer)
+
+    def get_runtime(self):
+        return self.runtimes[0]
 
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
@@ -92,18 +114,6 @@ class ImdbHandler(BaseHandler):
                 plot = plot[:i]
         return plot
 
-    def _nameAndRole(self, personList, joiner=u', '):
-        """ Build a pretty string with name and role."""
-        if len(personList) == 0:
-            return "Not Available"
-            
-        nl = []
-        for person in personList:
-            n = person.get('name', u'')
-            if person.currentRole: n += u' (%s)' % person.currentRole
-            nl.append(n)
-        return joiner.join(nl)
-
     def _moviePoster(self, movie):
         """ Find the best poster for a movie """
         pictureFile = urlfetch.Fetch(movie.get('full-size cover url')).content
@@ -111,43 +121,74 @@ class ImdbHandler(BaseHandler):
         # If we can't fina a poster then use the not avaiable image
         if not pictureFile:
             pictureFile = urlfetch.Fetch('/image/notavailable.jpg').content
-            
+
         # Make all our images 500 pixels wide to avoid storing giant image blobs
         image = images.Image(pictureFile)
         image.resize(500)
         return image.execute_transforms(output_encoding=images.JPEG)
 
+    def _personToString(self, personList):
+        nl = []
+        for person in personList:
+            n = person.get('name', u'')
+            if person.currentRole: n += u' (%s)' % person.currentRole
+            nl.append(n)
+        return nl
+
     def get(self):
         action = self.get_argument("action")
-        imdbKey = self.get_argument("id")
-        category = self.get_argument("cat", "SN")
 
         if action == "store":
-            ia = imdb.IMDb('http')
+            ia = IMDb('http')
+            imdbKey = self.get_argument("id")
+            category = self.get_argument("cat", "SN")
             imdbMovie = ia.get_movie(imdbKey)
 
-            cast = imdbMovie.get('cast', "Not Available")
-            cast = cast[:5]
-            
             movie = Movie(key_name = imdbMovie.movieID,
                           imdbID = imdbMovie.movieID,
                           title = imdbMovie.get('title', u'Not Available'),
                           year = str(imdbMovie.get('year')),
-                          plotOutline = imdbMovie.get('plot outline', u'Not Available'),
+                          plotOutline = imdbMovie.get('plot outline'),
                           plot = self._findPlot(imdbMovie),
                           picture = db.Blob(self._moviePoster(imdbMovie)),
-                          director = self._nameAndRole(imdbMovie.get('director')),
-                          writer = self._nameAndRole(imdbMovie.get('writer')),
-                          cast = self._nameAndRole(cast),
-                          certificates  = imdbMovie.get('certificates', u'none'),
-                          category = db.Category(category)
+                          director = self._personToString(imdbMovie.get('director')),
+                          writer = self._personToString(imdbMovie.get('writer')),
+                          cast = self._personToString(imdbMovie.get('cast')),
+                          certificates  = imdbMovie.get('certificates'),
+                          category = db.Category(category),
+                          runtimes = imdbMovie.get('runtimes')
             )
             movie.put()
 
+            filmJson = escape.json_encode({
+                'id': movie.imdbID,
+                'title':movie.title,
+                'year':movie.year,
+                'plotOutline':movie.plotOutline,
+                'plot':movie.plot,
+                'director':movie.director,
+                'writer':movie.writer,
+                'cast':movie.cast,
+                'runtimes':movie.runtimes
+            })
+
+            logging.info(filmJson)
+            self.write(filmJson)
+
+        if action == "search":
+            ia = IMDb('http')
+            movies = []
+
+            for movie in ia.search_movie(self.get_argument("title")):
+                movies.append({'id': movie.movieID,'title':movie.get('long imdb canonical title')})
+
+            self.write(escape.json_encode(movies))
+
         if action == "display":
-            ia = imdb.IMDb('http')
+            ia = IMDb('http')
             imdbMovie = ia.get_movie(self.get_argument("id"))
-            print imdbMovie.asXML()
+            self.set_header("Content-Type", "text/xml")
+            self.write(imdbMovie.asXML())
 
 class ImageHandler(BaseHandler):
 
@@ -211,22 +252,32 @@ class FilmModule(tornado.web.UIModule):
         return self.render_string("modules/film.html", movie=movie)
 
 class FilmDetailModule(tornado.web.UIModule):
-        
+
     def render(self, movie):
         return self.render_string("modules/filmDetail.html", movie=movie)
-        
+
 class AdScraperModule(tornado.web.UIModule):
     """Google Adsense Scraper Ad"""
     def render(self):
         return self.render_string("modules/scraper.html")
-        
+
+class FilmComingModule(tornado.web.UIModule):
+    """Module for Coming Soon film details"""
+    def render(self, movie):
+        return self.render_string("modules/filmComing.html", movie=movie)
+
 settings = {
     "cinema_name": u"The Royal Cinema",
     "cinema_location": u"Faversham",
     "cinema_title": u"The Royal Cinema Faversham",
     "template_path": os.path.join(os.path.dirname(__file__), "templates"),
     "static_path": os.path.join(os.path.dirname(__file__), "static"),
-    "ui_modules": {"Film": FilmModule,"FilmDetail": FilmDetailModule,"AdScraper": AdScraperModule},
+    "ui_modules": {
+        "Film": FilmModule,
+        "FilmDetail": FilmDetailModule,
+        "AdScraper": AdScraperModule,
+        "FilmComing": FilmComingModule
+    },
     "xsrf_cookies": True,
 }
 

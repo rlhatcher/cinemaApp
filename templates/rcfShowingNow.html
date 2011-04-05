@@ -11,23 +11,24 @@
 {% block body %}
 <div class="line-hor"></div>
 <div class="box">
-	<div class="border-right">
-		<div class="border-left">		    
-			<div class="inner">
-				<div id="adcontent">
-					<h3>Showing <span>Now</span></h3>
-		        	{% for movie in movies %}
-		            	{{ modules.FilmDetail(movie) }}
-		        	{% end %}
-            	</div>
-				<div id="scraper">
-					{{ modules.AdScraper() }}
-				    {% if movies.count() > 1 %}
-						<br />
-				        {{ modules.AdScraper() }}
-			        {% end %}
-				</div>
-			</div>
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <div id="adcontent">
+                    <h3>Showing <span>Now</span></h3>
+                    {% for movie in movies %}
+                        {{ modules.FilmDetail(movie) }}
+                    {% end %}
+                    <h3><a name="subform">Subscription Form</a></h3>
+                </div>
+                <div id="scraper">
+                    {{ modules.AdScraper() }}
+                    {% if movies.count() > 1 %}
+                        <br />
+                        {{ modules.AdScraper() }}
+                    {% end %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
