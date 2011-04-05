@@ -41,6 +41,8 @@ ul, ol {list-style:none}
 .movies li img {position:relative;padding-bottom:0px;width:244px; height: 360px; }
 .movies li p {min-height:120px;margin:15px 0 0 0;line-height:1.5em;font-size:.9em}
 .movies li p span {color:#fff}
+.movies li a {margin: 0px; display: block; width: 100%; height: 100%; text-decoration:none; }
+}
 .movies h4 {
 	height: 2em;;
 }

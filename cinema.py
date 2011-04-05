@@ -8,7 +8,9 @@ import tornado.web
 import tornado.wsgi
 import unicodedata
 import wsgiref.handlers
+import logging
 
+from tornado import escape
 from imdb import Person
 from imdb import IMDb
 from google.appengine.api import users
@@ -158,19 +160,29 @@ class ImdbHandler(BaseHandler):
             )
             movie.put()
 
-            self.write(movie)
-            return
+            filmJson = escape.json_encode({
+                'id': movie.imdbID,
+                'title':movie.title,
+                'year':movie.year,
+                'plotOutline':movie.plotOutline,
+                'plot':movie.plot,
+                'director':movie.director,
+                'writer':movie.writer,
+                'cast':movie.cast,
+                'runtimes':movie.runtimes
+            })
+
+            logging.info(filmJson)
+            self.write(filmJson)
 
         if action == "search":
             ia = IMDb('http')
             movies = []
-            title = self.get_argument("title")
-            movies = ia.search_movie(title)
-            titles = dict()
-            for movie in movies:
-                titles[movie.movieID] = movie.get('long imdb canonical title')
 
-            self.write(titles)
+            for movie in ia.search_movie(self.get_argument("title")):
+                movies.append({'id': movie.movieID,'title':movie.get('long imdb canonical title')})
+
+            self.write(escape.json_encode(movies))
 
         if action == "display":
             ia = IMDb('http')

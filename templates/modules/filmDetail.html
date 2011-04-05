@@ -1,4 +1,4 @@
-<div class="wrapper"><div class="movie-title"><span><span>{{ movie.title }}<img src="/static/images/UK_{{ movie.cert("UK") }}.png"</img></span></span></div></div>
+<div class="wrapper"><div class="movie-title"><span><span><a name="{{ movie.imdbID }}">{{ movie.title }}</a><img src="/static/images/UK_{{ movie.cert("UK") }}.png"</img></span></span></div></div>
 <div class="movie-detail" style="background-image:url(/image?id={{ movie.imdbID }}&amp;width=125); background-size: 125px; background-repeat: no-repeat;">
 <div id="times">
     <h5><span>Monday 3rd February</span> 15:00, 20:00</h5>
@@ -8,13 +8,14 @@
     <h5><span>Friday 7th February</span> 15:00, 20:00</h5>
     <h5><span>Saturday 8th February</span> 15:00, 17:00, 20:00</h5>
     <h5><span>Sunday 9th February</span> 15:00, 20:00</h5>
-	<a href="#" class="link3"><span><span>Book Now</span></span></a>
-	<a href="#" class="link3"><span><span>View Trailer</span></span></a>
+    <a href="#" class="link3"><span><span>Book Now</span></span></a>
+    <a href="#" class="link3"><span><span>View Trailer</span></span></a>
 </div>
 <h4>Storyline</h4>
 <p>{{ movie.plot }}</p>
 <h5><span>Director:</span>{{ movie.get_director() }}</h5>
 <h5><span>Writer:</span>{{ movie.get_writer() }}</h5>
 <h5><span>Cast:</span>{{ movie.get_cast() }}</h5>
+<h5><span>Runtime:</span>{{ movie.get_runtime() }} min</h5>
 </div>
 
