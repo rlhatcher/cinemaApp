@@ -96,7 +96,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class HomeHandler(BaseHandler):
     def get(self):
-        self.render("ic/home.html")
+        self.render("cms/index.html")
 
 class ImdbHandler(BaseHandler):
     """ Manages Showing now films http://127.0.0.1:8000/showingNow?action=store&id=1504320 """
