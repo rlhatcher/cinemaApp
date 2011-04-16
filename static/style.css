@@ -190,7 +190,7 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 .box {background:#000;width:100%;margin-top:-3px}
 .box .border-left {background:url(/static/images/border-left.gif) repeat-y left top}
 .box .border-right {background:url(/static/images/border-right.gif) repeat-y right top}
-.box .inner {padding:15px 50px 25px 50px;overflow:hidden;}
+.box .inner {padding:15px 50px 0px 50px;overflow:hidden;}
 /* HEADER */
 #header .row-1 {height:70px;width:100%;overflow:hidden;margin-top:10px}
 #header .row-1 .fleft {font-size:40px;line-height:1.2em}
