@@ -21,6 +21,8 @@
     @outlet CPTextField thePlot;
     @outlet CPTextField theWriter;
     @outlet CPTextField theDirector;
+    @outlet CPTextField theYear;
+    @outlet CPTextField theTime;
 
     CPProgressIndicator waiter;
     CPArray films;
@@ -42,12 +44,18 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullBridge:YES];
-    [theFilmTitle setStringValue:@""];
-    [theWriter setStringValue:@""];
-    [theDirector setStringValue:@""];
-
+    [self clearForm];
 }
 
+- (id)clearForm
+{
+    [theFilmTitle setStringValue:@""];
+    [thePlot setStringValue:@""];
+    [theWriter setStringValue:@""];
+    [theDirector setStringValue:@""];
+    [theYear setStringValue:@""];
+    [theTime setStringValue:@""];
+}
 - (@action) click:(id)sender
 {
 /*    [theText setStringValue:@"hello world"];*/
@@ -69,10 +77,14 @@
     [thePlot setStringValue:[theFilm plotOutline]];
     [theWriter setStringValue:[theFilm writer]];
     [theDirector setStringValue:[theFilm director]];
+    [theYear setStringValue:[theFilm year]];
+    [theTime setStringValue:[theFilm runtimes]];
 }
 
 - (@action) search:(id)Sender
 {
+    [self clearForm];
+
     var userInput = [theSearch stringValue];
 
     if (userInput!=="") {
