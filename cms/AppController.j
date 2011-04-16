@@ -21,13 +21,6 @@
     @outlet CPTextField thePlot;
     @outlet CPTextField theWriter;
     @outlet CPTextField theDirector;
-<<<<<<< HEAD
-    @outlet CPTextField theYear;
-    @outlet CPTextField theTime;
-=======
-    @outlet CPTextField theTime;
-    @outlet CPTextField theYear;
->>>>>>> feature-smart-search
 
     CPProgressIndicator waiter;
     CPArray films;
@@ -52,14 +45,7 @@
     [theFilmTitle setStringValue:@""];
     [theWriter setStringValue:@""];
     [theDirector setStringValue:@""];
-<<<<<<< HEAD
-    [theYear setStringValue:@""];
-    [theTime setStringValue:@""];
-=======
-    [theTime setStringValue:@""];
-    [theYear setStringValue:@""];
 
->>>>>>> feature-smart-search
 }
 
 - (@action) click:(id)sender
@@ -83,13 +69,6 @@
     [thePlot setStringValue:[theFilm plotOutline]];
     [theWriter setStringValue:[theFilm writer]];
     [theDirector setStringValue:[theFilm director]];
-<<<<<<< HEAD
-    [theYear setStringValue:[theFilm year]];
-    [theTime setStringValue:[theFilm runtimes]];
-=======
-    [theTime setStringValue:[theFilm runtimes]];
-    [theYear setStringValue:[theFilm year]];
->>>>>>> feature-smart-search
 }
 
 - (@action) search:(id)Sender
