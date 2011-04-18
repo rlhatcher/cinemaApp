@@ -64,7 +64,8 @@
 - (@action) tableClick:(id)sender
 {
     row = [sender selectedRow];
-    var request = [CPURLRequest requestWithURL:"http://independent-cinemas.com/imdb?action=store&id=" + encodeURIComponent([films[row] filmId])];
+    var url = @"http://www.independent-cinemas.com/imdb?action=store&id=" + encodeURIComponent([films[row] filmId]);
+    var request = [CPURLRequest requestWithURL:url];
 
     [request setHTTPMethod: "GET"];
     _storeConnection = [CPURLConnection connectionWithRequest: request delegate: self];
@@ -88,7 +89,8 @@
     var userInput = [theSearch stringValue];
 
     if (userInput!=="") {
-        var request = [CPURLRequest requestWithURL:"http://independent-cinemas.com/imdb?action=search&title=" + encodeURIComponent(userInput)];
+        var url = @"http://www.independent-cinemas.com/imdb?action=search&title=" + encodeURIComponent(userInput);
+        var request = [CPURLRequest requestWithURL:url];
 
         [request setHTTPMethod: "GET"];
         _imdbConnection = [CPURLConnection connectionWithRequest: request delegate: self];
@@ -133,7 +135,7 @@
 - (void)connection:(CPURLConnection)aConnection didFailWithError:(CPError)anError
 {
     if (aConnection == _imdbConnection)
-        alert("There was an error retrieving film information. Please try again in a moment.");
+        alert(@"There was an error retrieving film information. Please try again in a moment.");
 
     [self clearConnection:aConnection];
 }
