@@ -13,6 +13,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="372"/>
+			<integer value="81"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -271,7 +272,7 @@
 								</object>
 								<object class="NSMenuItem" id="579971712">
 									<reference key="NSMenu" ref="720053764"/>
-									<string key="NSTitle">Revert to Saved</string>
+									<string key="NSTitle">Purge All</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -1161,11 +1162,7 @@
 								<reference key="NSControlView" ref="424843034"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<int key="NSTextBezelStyle">1</int>
-<<<<<<< HEAD
-								<object class="NSColor" key="NSBackgroundColor" id="59742459">
-=======
-								<object class="NSColor" key="NSBackgroundColor" id="517933854">
->>>>>>> feature-smart-search
+								<object class="NSColor" key="NSBackgroundColor" id="262305409">
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
 									<string key="NSColorName">textBackgroundColor</string>
@@ -1449,34 +1446,20 @@
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="1000956919">
-=======
-						<object class="NSTextField" id="64366782">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="688193483">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{392, 48}, {271, 127}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="22468075">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="406609392">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="996779255">
 								<int key="NSCellFlags">-1809711615</int>
 								<int key="NSCellFlags2">272629760</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="1000956919"/>
+								<reference key="NSControlView" ref="688193483"/>
 								<bool key="NSDrawsBackground">YES</bool>
-								<reference key="NSBackgroundColor" ref="59742459"/>
-=======
-								<reference key="NSControlView" ref="64366782"/>
-								<bool key="NSDrawsBackground">YES</bool>
-								<reference key="NSBackgroundColor" ref="517933854"/>
->>>>>>> feature-smart-search
+								<reference key="NSBackgroundColor" ref="262305409"/>
 								<object class="NSColor" key="NSTextColor">
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
@@ -1485,226 +1468,130 @@
 								</object>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="403629263">
-=======
-						<object class="NSTextField" id="1056328983">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="133122743">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{389, 291}, {55, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="1008429550">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="469324540">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="126772309">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Director</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="403629263"/>
-=======
-								<reference key="NSControlView" ref="1056328983"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="133122743"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="57821114">
-=======
-						<object class="NSTextField" id="879702070">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="89106246">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{389, 266}, {42, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="290520718">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="741138095">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="571351502">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Writer</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="57821114"/>
-=======
-								<reference key="NSControlView" ref="879702070"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="89106246"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="701754146">
-=======
-						<object class="NSTextField" id="483858738">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="703079103">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{453, 291}, {213, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="281567486">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="88316823">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="334109265">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Label</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="701754146"/>
-=======
-								<reference key="NSControlView" ref="483858738"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="703079103"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="67749905">
-=======
-						<object class="NSTextField" id="718857609">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="1068731486">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{453, 266}, {213, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="808821618">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="376044018">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="905370378">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Label</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="67749905"/>
-=======
-								<reference key="NSControlView" ref="718857609"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="1068731486"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="272247146">
-=======
-						<object class="NSTextField" id="1071690194">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="499071365">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{389, 241}, {38, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="228982070">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="97125333">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="972926137">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Year</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="272247146"/>
-=======
-								<reference key="NSControlView" ref="1071690194"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="499071365"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="755451254">
-=======
-						<object class="NSTextField" id="411073832">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="767444885">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{389, 216}, {38, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="8118901">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="448180742">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="803000214">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Time</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="755451254"/>
-=======
-								<reference key="NSControlView" ref="411073832"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="767444885"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="980463301">
-=======
-						<object class="NSTextField" id="778599069">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="512921517">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{453, 241}, {213, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="495415555">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="398511093">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="238237945">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Label</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="980463301"/>
-=======
-								<reference key="NSControlView" ref="778599069"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="512921517"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
 						</object>
-<<<<<<< HEAD
-						<object class="NSTextField" id="429731061">
-=======
-						<object class="NSTextField" id="401577633">
->>>>>>> feature-smart-search
+						<object class="NSTextField" id="481658523">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{453, 216}, {213, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-<<<<<<< HEAD
-							<object class="NSTextFieldCell" key="NSCell" id="239187033">
-=======
-							<object class="NSTextFieldCell" key="NSCell" id="31813059">
->>>>>>> feature-smart-search
+							<object class="NSTextFieldCell" key="NSCell" id="368508852">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Label</string>
 								<reference key="NSSupport" ref="256001878"/>
-<<<<<<< HEAD
-								<reference key="NSControlView" ref="429731061"/>
-=======
-								<reference key="NSControlView" ref="401577633"/>
->>>>>>> feature-smart-search
+								<reference key="NSControlView" ref="481658523"/>
 								<reference key="NSBackgroundColor" ref="4921474"/>
 								<reference key="NSTextColor" ref="96125533"/>
 							</object>
@@ -1954,14 +1841,6 @@
 						<reference key="destination" ref="117038363"/>
 					</object>
 					<int key="connectionID">363</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">revertDocumentToSaved:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="579971712"/>
-					</object>
-					<int key="connectionID">364</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2311,11 +2190,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">thePlot</string>
 						<reference key="source" ref="635946545"/>
-<<<<<<< HEAD
-						<reference key="destination" ref="1000956919"/>
-=======
-						<reference key="destination" ref="64366782"/>
->>>>>>> feature-smart-search
+						<reference key="destination" ref="688193483"/>
 					</object>
 					<int key="connectionID">517</int>
 				</object>
@@ -2323,11 +2198,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">theDirector</string>
 						<reference key="source" ref="635946545"/>
-<<<<<<< HEAD
-						<reference key="destination" ref="701754146"/>
-=======
-						<reference key="destination" ref="483858738"/>
->>>>>>> feature-smart-search
+						<reference key="destination" ref="703079103"/>
 					</object>
 					<int key="connectionID">528</int>
 				</object>
@@ -2335,11 +2206,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">theWriter</string>
 						<reference key="source" ref="635946545"/>
-<<<<<<< HEAD
-						<reference key="destination" ref="67749905"/>
-=======
-						<reference key="destination" ref="718857609"/>
->>>>>>> feature-smart-search
+						<reference key="destination" ref="1068731486"/>
 					</object>
 					<int key="connectionID">529</int>
 				</object>
@@ -2347,29 +2214,25 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">theYear</string>
 						<reference key="source" ref="635946545"/>
-<<<<<<< HEAD
-						<reference key="destination" ref="980463301"/>
-					</object>
-					<int key="connectionID">538</int>
-=======
-						<reference key="destination" ref="778599069"/>
+						<reference key="destination" ref="512921517"/>
 					</object>
 					<int key="connectionID">540</int>
->>>>>>> feature-smart-search
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">theTime</string>
 						<reference key="source" ref="635946545"/>
-<<<<<<< HEAD
-						<reference key="destination" ref="429731061"/>
-					</object>
-					<int key="connectionID">539</int>
-=======
-						<reference key="destination" ref="401577633"/>
+						<reference key="destination" ref="481658523"/>
 					</object>
 					<int key="connectionID">541</int>
->>>>>>> feature-smart-search
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">purgeAll:</string>
+						<reference key="source" ref="635946545"/>
+						<reference key="destination" ref="579971712"/>
+					</object>
+					<int key="connectionID">559</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2934,27 +2797,15 @@
 							<reference ref="285554367"/>
 							<reference ref="1070196717"/>
 							<reference ref="96144443"/>
-<<<<<<< HEAD
-							<reference ref="1000956919"/>
-							<reference ref="403629263"/>
-							<reference ref="57821114"/>
-							<reference ref="701754146"/>
-							<reference ref="67749905"/>
-							<reference ref="272247146"/>
-							<reference ref="755451254"/>
-							<reference ref="980463301"/>
-							<reference ref="429731061"/>
-=======
-							<reference ref="64366782"/>
-							<reference ref="1056328983"/>
-							<reference ref="879702070"/>
-							<reference ref="483858738"/>
-							<reference ref="718857609"/>
-							<reference ref="1071690194"/>
-							<reference ref="411073832"/>
-							<reference ref="778599069"/>
-							<reference ref="401577633"/>
->>>>>>> feature-smart-search
+							<reference ref="688193483"/>
+							<reference ref="133122743"/>
+							<reference ref="89106246"/>
+							<reference ref="703079103"/>
+							<reference ref="1068731486"/>
+							<reference ref="499071365"/>
+							<reference ref="767444885"/>
+							<reference ref="512921517"/>
+							<reference ref="481658523"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3419,237 +3270,129 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">515</int>
-<<<<<<< HEAD
-						<reference key="object" ref="1000956919"/>
+						<reference key="object" ref="688193483"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="22468075"/>
-=======
-						<reference key="object" ref="64366782"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="406609392"/>
->>>>>>> feature-smart-search
+							<reference ref="996779255"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">516</int>
-<<<<<<< HEAD
-						<reference key="object" ref="22468075"/>
-						<reference key="parent" ref="1000956919"/>
+						<reference key="object" ref="996779255"/>
+						<reference key="parent" ref="688193483"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">518</int>
-						<reference key="object" ref="403629263"/>
+						<reference key="object" ref="133122743"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1008429550"/>
-=======
-						<reference key="object" ref="406609392"/>
-						<reference key="parent" ref="64366782"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">518</int>
-						<reference key="object" ref="1056328983"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="469324540"/>
->>>>>>> feature-smart-search
+							<reference ref="126772309"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">519</int>
-<<<<<<< HEAD
-						<reference key="object" ref="1008429550"/>
-						<reference key="parent" ref="403629263"/>
+						<reference key="object" ref="126772309"/>
+						<reference key="parent" ref="133122743"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">520</int>
-						<reference key="object" ref="57821114"/>
+						<reference key="object" ref="89106246"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="290520718"/>
-=======
-						<reference key="object" ref="469324540"/>
-						<reference key="parent" ref="1056328983"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">520</int>
-						<reference key="object" ref="879702070"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="741138095"/>
->>>>>>> feature-smart-search
+							<reference ref="571351502"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">521</int>
-<<<<<<< HEAD
-						<reference key="object" ref="290520718"/>
-						<reference key="parent" ref="57821114"/>
+						<reference key="object" ref="571351502"/>
+						<reference key="parent" ref="89106246"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">524</int>
-						<reference key="object" ref="701754146"/>
+						<reference key="object" ref="703079103"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="281567486"/>
-=======
-						<reference key="object" ref="741138095"/>
-						<reference key="parent" ref="879702070"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">524</int>
-						<reference key="object" ref="483858738"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="88316823"/>
->>>>>>> feature-smart-search
+							<reference ref="334109265"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">525</int>
-<<<<<<< HEAD
-						<reference key="object" ref="281567486"/>
-						<reference key="parent" ref="701754146"/>
+						<reference key="object" ref="334109265"/>
+						<reference key="parent" ref="703079103"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">526</int>
-						<reference key="object" ref="67749905"/>
+						<reference key="object" ref="1068731486"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="808821618"/>
-=======
-						<reference key="object" ref="88316823"/>
-						<reference key="parent" ref="483858738"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">526</int>
-						<reference key="object" ref="718857609"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="376044018"/>
->>>>>>> feature-smart-search
+							<reference ref="905370378"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">527</int>
-<<<<<<< HEAD
-						<reference key="object" ref="808821618"/>
-						<reference key="parent" ref="67749905"/>
+						<reference key="object" ref="905370378"/>
+						<reference key="parent" ref="1068731486"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">530</int>
-						<reference key="object" ref="272247146"/>
+						<reference key="object" ref="499071365"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="228982070"/>
-=======
-						<reference key="object" ref="376044018"/>
-						<reference key="parent" ref="718857609"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">530</int>
-						<reference key="object" ref="1071690194"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="97125333"/>
->>>>>>> feature-smart-search
+							<reference ref="972926137"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">531</int>
-<<<<<<< HEAD
-						<reference key="object" ref="228982070"/>
-						<reference key="parent" ref="272247146"/>
+						<reference key="object" ref="972926137"/>
+						<reference key="parent" ref="499071365"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">532</int>
-						<reference key="object" ref="755451254"/>
+						<reference key="object" ref="767444885"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="8118901"/>
-=======
-						<reference key="object" ref="97125333"/>
-						<reference key="parent" ref="1071690194"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">532</int>
-						<reference key="object" ref="411073832"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="448180742"/>
->>>>>>> feature-smart-search
+							<reference ref="803000214"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">533</int>
-<<<<<<< HEAD
-						<reference key="object" ref="8118901"/>
-						<reference key="parent" ref="755451254"/>
+						<reference key="object" ref="803000214"/>
+						<reference key="parent" ref="767444885"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">534</int>
-						<reference key="object" ref="980463301"/>
+						<reference key="object" ref="512921517"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="495415555"/>
-=======
-						<reference key="object" ref="448180742"/>
-						<reference key="parent" ref="411073832"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">534</int>
-						<reference key="object" ref="778599069"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="398511093"/>
->>>>>>> feature-smart-search
+							<reference ref="238237945"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">535</int>
-<<<<<<< HEAD
-						<reference key="object" ref="495415555"/>
-						<reference key="parent" ref="980463301"/>
+						<reference key="object" ref="238237945"/>
+						<reference key="parent" ref="512921517"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">536</int>
-						<reference key="object" ref="429731061"/>
+						<reference key="object" ref="481658523"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="239187033"/>
-=======
-						<reference key="object" ref="398511093"/>
-						<reference key="parent" ref="778599069"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">536</int>
-						<reference key="object" ref="401577633"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="31813059"/>
->>>>>>> feature-smart-search
+							<reference ref="368508852"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">537</int>
-<<<<<<< HEAD
-						<reference key="object" ref="239187033"/>
-						<reference key="parent" ref="429731061"/>
-=======
-						<reference key="object" ref="31813059"/>
-						<reference key="parent" ref="401577633"/>
->>>>>>> feature-smart-search
+						<reference key="object" ref="368508852"/>
+						<reference key="parent" ref="481658523"/>
 					</object>
 				</object>
 			</object>
@@ -3985,7 +3728,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{406, 302}, {240, 243}}</string>
+					<string>{{380, 412}, {240, 243}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{187, 434}, {243, 243}}</string>
@@ -4033,7 +3776,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{355, 715}, {454, 20}}</string>
+					<string>{{218, 655}, {454, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{74, 862}</string>
@@ -4057,9 +3800,9 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{13, 62}, {683, 413}}</string>
+					<string>{{12, 70}, {683, 413}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{13, 62}, {683, 413}}</string>
+					<string>{{12, 70}, {683, 413}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -4184,7 +3927,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{364, 342}, {196, 203}}</string>
+					<string>{{338, 452}, {179, 203}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
@@ -4212,11 +3955,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-<<<<<<< HEAD
-			<int key="maxID">539</int>
-=======
-			<int key="maxID">541</int>
->>>>>>> feature-smart-search
+			<int key="maxID">559</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4228,11 +3967,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>click:</string>
+							<string>purgeAll:</string>
 							<string>search:</string>
 							<string>tableClick:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -4243,6 +3984,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>click:</string>
+							<string>purgeAll:</string>
 							<string>search:</string>
 							<string>tableClick:</string>
 						</object>
@@ -4250,6 +3992,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">click:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">purgeAll:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -4273,6 +4019,7 @@
 							<string>theResults</string>
 							<string>theSearch</string>
 							<string>theTime</string>
+							<string>theWaiter</string>
 							<string>theWindow</string>
 							<string>theWriter</string>
 							<string>theYear</string>
@@ -4286,6 +4033,7 @@
 							<string>NSTableView</string>
 							<string>NSSearchField</string>
 							<string>NSTextField</string>
+							<string>NSCustomView</string>
 							<string>NSWindow</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
@@ -4302,6 +4050,7 @@
 							<string>theResults</string>
 							<string>theSearch</string>
 							<string>theTime</string>
+							<string>theWaiter</string>
 							<string>theWindow</string>
 							<string>theWriter</string>
 							<string>theYear</string>
@@ -4335,6 +4084,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">theTime</string>
 								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">theWaiter</string>
+								<string key="candidateClassName">NSCustomView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">theWindow</string>

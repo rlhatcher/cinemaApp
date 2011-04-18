@@ -29,6 +29,7 @@
     ICFilm film;
     CPURLConnection _storeConnection; // Store a film command
     CPURLConnection _imdbConnection; // Search a fil command
+    CPURLConnection _purgeConnection; // Kill everything!!!
 }
 
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
@@ -56,6 +57,16 @@
     [theYear setStringValue:@""];
     [theTime setStringValue:@""];
 }
+
+- (@action) purgeAll:(id)sender
+{
+    var url = @"http://www.independent-cinemas.com/purge";
+    var request = [CPURLRequest requestWithURL:url];
+
+    [request setHTTPMethod: "GET"];
+    _purgeConnection = [CPURLConnection connectionWithRequest: request delegate: self];
+}
+
 - (@action) click:(id)sender
 {
 /*    [theText setStringValue:@"hello world"];*/
@@ -116,16 +127,23 @@
 {
     //get a javascript object from the json response
 
-    var result = JSON.parse(data);
 
     if (aConnection == _storeConnection) {
+        var result = JSON.parse(data);
+
         film = [ICFilm initWithFilm:result];
         [self displayFilm:film];
     }
 
     if (aConnection == _imdbConnection) {
+        var result = JSON.parse(data);
+
         films = [ICFilmSummary initWithJSONObjects:result];
         [theResults reloadData];
+    }
+
+    if (aConnection = _purgeConnection) {
+        alert(@"Purge Complete");
     }
 
     //clear out this connection's reference
