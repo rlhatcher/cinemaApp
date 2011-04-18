@@ -64,7 +64,7 @@
 - (@action) tableClick:(id)sender
 {
     row = [sender selectedRow];
-    var request = [CPURLRequest requestWithURL:"http://127.0.0.1:8000/imdb?action=store&id=" + encodeURIComponent([films[row] filmId])];
+    var request = [CPURLRequest requestWithURL:"http://independent-cinemas.com/imdb?action=store&id=" + encodeURIComponent([films[row] filmId])];
 
     [request setHTTPMethod: "GET"];
     _storeConnection = [CPURLConnection connectionWithRequest: request delegate: self];
@@ -88,7 +88,7 @@
     var userInput = [theSearch stringValue];
 
     if (userInput!=="") {
-        var request = [CPURLRequest requestWithURL:"http://127.0.0.1:8000/imdb?action=search&title=" + encodeURIComponent(userInput)];
+        var request = [CPURLRequest requestWithURL:"http://independent-cinemas.com/imdb?action=search&title=" + encodeURIComponent(userInput)];
 
         [request setHTTPMethod: "GET"];
         _imdbConnection = [CPURLConnection connectionWithRequest: request delegate: self];
