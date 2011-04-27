@@ -60,7 +60,7 @@
 
 - (@action) purgeAll:(id)sender
 {
-    var url = @"http://www.independent-cinemas.com/purge";
+    var url = @"/purge";
     var request = [CPURLRequest requestWithURL:url];
 
     [request setHTTPMethod: "GET"];
@@ -75,7 +75,7 @@
 - (@action) tableClick:(id)sender
 {
     row = [sender selectedRow];
-    var url = @"http://www.independent-cinemas.com/imdb?action=store&id=" + encodeURIComponent([films[row] filmId]);
+    var url = @"/imdb?action=store&id=" + encodeURIComponent([films[row] filmId]);
     var request = [CPURLRequest requestWithURL:url];
 
     [request setHTTPMethod: "GET"];
@@ -100,7 +100,7 @@
     var userInput = [theSearch stringValue];
 
     if (userInput!=="") {
-        var url = @"http://www.independent-cinemas.com/imdb?action=search&title=" + encodeURIComponent(userInput);
+        var url = @"/imdb?action=search&title=" + encodeURIComponent(userInput);
         var request = [CPURLRequest requestWithURL:url];
 
         [request setHTTPMethod: "GET"];
@@ -126,7 +126,6 @@
 - (void)connection:(CPURLConnection)aConnection didReceiveData:(CPString)data
 {
     //get a javascript object from the json response
-
 
     if (aConnection == _storeConnection) {
         var result = JSON.parse(data);
