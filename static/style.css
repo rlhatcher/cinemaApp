@@ -84,7 +84,7 @@ h2 span {display:block;font-size:40px;color:#2c6d9a}
 h3 {font-size:30px;line-height:1.2em;color:#bfbfbf;margin-bottom:15px}
 h3 b {color:#e1e1e1;font-weight:normal}
 h3 span {color:#d72a18}
-h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#ffffff;margin-bottom:18px}
+h4 {font-size:22px;line-height:1.2em;letter-spacing:-1px;color:#ffffff;margin-bottom:18px; overflow: hidden; height: 52px; }
 h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bottom:5px}
 
 .movie-title {
