@@ -1,6 +1,14 @@
 <ul class="movies">
     {% for movie in movies %}
-    <li>
+	{% if movies.count() == 1 %}
+	<li class="one">
+	{% end %}
+	{% if movies.count() == 2 %}
+	<li class="two">
+	{% end %}
+	{% if movies.count() >= 3 %}
+	<li>
+	{% end %}
         <a href="/showingNow#{{ movie.imdbID }}">
             <h4>{{ movie.title }}</h4><img src="/image?id={{ movie.imdbID }}&amp;width=250" alt="" />
             <p>{{ movie.plotOutline }}</p>

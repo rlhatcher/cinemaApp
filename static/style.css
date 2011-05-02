@@ -35,7 +35,10 @@ ul, ol {list-style:none}
 #contacts-form .link2 {float:right}
 /* LISTS */
 .movies {width:100%}
-.movies li {float:left;width:244px;margin-right:18px;margin-left:18px;}
+.movies li {float:left;width:244px;margin-right:18px;margin-left:18px; }
+.movies li.one {margin-left: 280px;}
+.movies li.two {margin-left: 110px;}
+.movies li.three {margin-left: inherit;}
 .movies li.last {margin-right:0}
 .movies li.clear {float:none;width:auto;margin:0;font-size:0;line-height:0}
 .movies li img {position:relative;padding-bottom:0px;width:244px; height: 360px; }
