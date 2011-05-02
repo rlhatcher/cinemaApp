@@ -1,6 +1,11 @@
-<li>
-    <a href="/showingNow#{{ movie.imdbID }}">
-    <h4>{{ movie.title }}</h4><img src="/image?id={{ movie.imdbID }}&amp;width=250" alt="" />
-    <p>{{ movie.plotOutline }}</p>
-    </a>
-</li>
+<ul class="movies">
+    {% for movie in movies %}
+    <li>
+        <a href="/showingNow#{{ movie.imdbID }}">
+            <h4>{{ movie.title }}</h4><img src="/image?id={{ movie.imdbID }}&amp;width=250" alt="" />
+            <p>{{ movie.plotOutline }}</p>
+        </a>
+    </li>
+    {% end %}
+    <li class="clear"> </li>
+</ul>

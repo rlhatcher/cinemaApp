@@ -248,8 +248,8 @@ class rcfContactUsHandler(BaseHandler):
         self.render("rcfContactUs.html")
 
 class FilmModule(tornado.web.UIModule):
-    def render(self, movie):
-        return self.render_string("modules/film.html", movie=movie)
+    def render(self, movies):
+        return self.render_string("modules/film.html", movies=movies)
 
 class FilmDetailModule(tornado.web.UIModule):
 
