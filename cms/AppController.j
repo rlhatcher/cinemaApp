@@ -14,6 +14,7 @@
 @implementation AppController : CPObject
 {
     CPWindow    theWindow; //this "outlet" is connected automatically by the Cib
+    CPWindow    theInfoWindow;
     @outlet CPButton theButton;
     @outlet CPSearchField theSearch;
     @outlet CPTableView theResults;
@@ -44,8 +45,9 @@
     // It's a useful hook for setting up current UI values, and other things.
 
     // In this case, we want the window from Cib to become our full browser window
-    [theWindow setFullBridge:YES];
-    [self clearForm];
+//    [theWindow setFullBridge:YES];
+    [theInfoWindow setFullBridge:YES];
+//    [self clearForm];
 }
 
 - (id)clearForm
@@ -164,6 +166,9 @@
         _imdbConnection = nil;
 
     if (aConnection == _storeConnection)
+        _storeConnection = nil;
+
+    if (aConnection == _purgeConnection)
         _storeConnection = nil;
 }
 @end
