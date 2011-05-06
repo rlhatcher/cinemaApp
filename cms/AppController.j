@@ -7,14 +7,13 @@
  */
 
 @import <Foundation/CPObject.j>
-@import <AppKit/CPProgressIndicator.j>
+
 @import "ICFilm.j"
 @import "ICFilmSummary.j"
 
 @implementation AppController : CPObject
 {
     CPWindow    theWindow; //this "outlet" is connected automatically by the Cib
-    CPWindow    theInfoWindow;
     @outlet CPButton theButton;
     @outlet CPSearchField theSearch;
     @outlet CPTableView theResults;
@@ -25,7 +24,6 @@
     @outlet CPTextField theYear;
     @outlet CPTextField theTime;
 
-    CPProgressIndicator waiter;
     CPArray films;
     ICFilm film;
     CPURLConnection _storeConnection; // Store a film command
@@ -46,7 +44,13 @@
 
     // In this case, we want the window from Cib to become our full browser window
 //    [theWindow setFullBridge:YES];
-    [theInfoWindow setFullBridge:YES];
+/*if (theInfoWindowController === nil)
+{
+    theInfoWindowController = [[InfoWindowController alloc] init];
+}
+[[theInfoWindowController window] orderFront:self];
+*/
+/*    [theWindow setFullBridge:YES];*/
 //    [self clearForm];
 }
 
