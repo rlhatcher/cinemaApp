@@ -1,0 +1,7 @@
+
+@interface FilmController : NSWindowController
+{
+
+}
+
+@end

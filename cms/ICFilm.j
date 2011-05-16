@@ -24,16 +24,17 @@
 {
     var film = [[ICFilm alloc] init];
 
-    [film setFilmId:anObject.id];
-    [film setTitle:anObject.title];
-    [film setYear:anObject.year];
-    [film setPlotOutline:anObject.plotOutline];
-    [film setPlot:anObject.plot];
-    [film setDirector:anObject.director];
-    [film setWriter:anObject.writer];
-    [film setCast:anObject.cast];
-    [film setRuntimes:anObject.runtimes];
-
+    if (film) {
+        [film setFilmId:anObject.id];
+        [film setTitle:anObject.title];
+        [film setYear:anObject.year];
+        [film setPlotOutline:anObject.plotOutline];
+        [film setPlot:anObject.plot];
+        [film setDirector:anObject.director];
+        [film setWriter:anObject.writer];
+        [film setCast:anObject.cast];
+        [film setRuntimes:anObject.runtimes];
+    }
     return film;
 }
 @end

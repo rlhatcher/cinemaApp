@@ -1,0 +1,7 @@
+
+@interface ICFilmSummary : NSObject
+{
+
+}
+
+@end
