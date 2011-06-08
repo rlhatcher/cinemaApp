@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentScene</key>
-	<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
+	<string>33CABA23-7687-4488-B2C4-75D288125110-977-000009723F3E9E46</string>
 	<key>documentVersion</key>
 	<string>38</string>
 	<key>drawSceneBackgrounds</key>
@@ -1440,7 +1440,7 @@
 			<string>{7, 0}</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>4943D773-0A13-4465-85D6-8C429A5BD0C4-977-000009B936A7E67C</string>
+				<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
 			</array>
 			<key>splitHeight</key>
 			<real>367</real>
@@ -3428,7 +3428,7 @@
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>0.0</real>
+					<real>1.0333333015441895</real>
 				</dict>
 				<key>timescale</key>
 				<integer>60</integer>
@@ -3937,6 +3937,159 @@
 							<string>pointer</string>
 						</dict>
 					</array>
+					<key>D6CB26AE-896A-43C7-B22E-80DE3EEDB912-977-000009E3484EFBEF</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderWidthBottom</string>
+							<key>objectValue</key>
+							<string>1px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderColorBottom</string>
+							<key>objectValue</key>
+							<string>#A0A0A0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Opacity</string>
+							<key>objectValue</key>
+							<string>0.000000</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderStyleRight</string>
+							<key>objectValue</key>
+							<string>Solid</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Box</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>104px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderColorLeft</string>
+							<key>objectValue</key>
+							<string>#A0A0A0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderWidthRight</string>
+							<key>objectValue</key>
+							<string>1px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderStyleLeft</string>
+							<key>objectValue</key>
+							<string>Solid</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderColorTop</string>
+							<key>objectValue</key>
+							<string>#A0A0A0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderStyleBottom</string>
+							<key>objectValue</key>
+							<string>Solid</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>384px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>137px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderColorRight</string>
+							<key>objectValue</key>
+							<string>#A0A0A0</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderStyleTop</string>
+							<key>objectValue</key>
+							<string>Solid</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>565px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>9</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderWidthTop</string>
+							<key>objectValue</key>
+							<string>1px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>Box</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderWidthLeft</string>
+							<key>objectValue</key>
+							<string>1px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundColor</string>
+							<key>objectValue</key>
+							<string>#def</string>
+						</dict>
+					</array>
 					<key>F85592AF-E280-415C-AE60-55429FB49AA4-977-000009723E2B1935</key>
 					<array>
 						<dict>
@@ -4400,7 +4553,65 @@
 					</dict>
 					<dict>
 						<key>animations</key>
-						<array/>
+						<array>
+							<dict>
+								<key>duration</key>
+								<real>1.0333333015441895</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1.000000</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<true/>
+								<key>oid</key>
+								<string>D6CB26AE-896A-43C7-B22E-80DE3EEDB912-977-000009E3484EFBEF</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0.000000</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>6C089FB9-853F-48C3-AF90-6BFFAA0FAB7D-977-000009EA08FD7A8F</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>oid</key>
+								<string>D6CB26AE-896A-43C7-B22E-80DE3EEDB912-977-000009E3484EFBEF</string>
+								<key>startTime</key>
+								<real>1.0333333015441895</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1.000000</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>00633754-3A92-4C47-8A5E-38AAE8B79E50-977-000009EC4770EA57</string>
+							</dict>
+						</array>
 						<key>framesPerSecond</key>
 						<integer>30</integer>
 						<key>hidden</key>
@@ -4491,10 +4702,10 @@
 			<key>oid</key>
 			<string>33CABA23-7687-4488-B2C4-75D288125110-977-000009723F3E9E46</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 0}</string>
+			<string>{2, 0}</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>F85592AF-E280-415C-AE60-55429FB49AA4-977-000009723E2B1935</string>
+				<string>D6CB26AE-896A-43C7-B22E-80DE3EEDB912-977-000009E3484EFBEF</string>
 			</array>
 			<key>splitHeight</key>
 			<real>367</real>
@@ -4505,6 +4716,8 @@
 	<key>showLoadingPage</key>
 	<false/>
 	<key>unsupportedBrowserIdentifiers</key>
-	<array/>
+	<array>
+		<string>opera-1110</string>
+	</array>
 </dict>
 </plist>
