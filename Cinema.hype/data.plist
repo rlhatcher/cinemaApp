@@ -11,7 +11,7 @@
 	<key>layout</key>
 	<dict>
 		<key>mainWindowFrame</key>
-		<string>0 99 1280 679 0 0 1280 778 </string>
+		<string>0 115 982 663 0 0 1280 778 </string>
 		<key>openTabs</key>
 		<array/>
 		<key>selectedTabIndex</key>
@@ -19,12 +19,12 @@
 		<key>showSceneTabView</key>
 		<true/>
 		<key>splitHeight</key>
-		<real>440</real>
+		<real>404</real>
 	</dict>
 	<key>resources</key>
 	<array/>
 	<key>sceneSize</key>
-	<string>{840, 400}</string>
+	<string>{840, 600}</string>
 	<key>scenes</key>
 	<array>
 		<dict>
@@ -33,27 +33,294 @@
 				<key>additionalAttributesToShow</key>
 				<dict/>
 				<key>expandedItems</key>
-				<array/>
+				<array>
+					<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+				</array>
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>0.0</real>
+					<real>3</real>
 				</dict>
 				<key>timescale</key>
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{1280, 440}</string>
+			<string>{991, 663}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
 				<string>kTimelineDefaultIdentifier</string>
 				<key>elements</key>
-				<dict/>
+				<dict>
+					<key>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingRight</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>14px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Opacity</string>
+							<key>objectValue</key>
+							<string>0.000000</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WordWrap</string>
+							<key>objectValue</key>
+							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>302px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WhiteSpaceCollapsing</string>
+							<key>objectValue</key>
+							<string>preserve</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>547px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>72px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string>&lt;div&gt;Faversham's Royal Cinema in the Market Place was reopened in 1994 by Peter Baldock and Michael Harlow. It was an immediate success and has gone from strength to strength. Over the years a huge amount of money - including £9,000 collected by the Royal Action Group (RAG) - has been invested in the building and its equipment.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The RAG funded a hundred new seats and repairs to the roof and guttering. The proprietors have upgraded the sound system to full Dolby Stereo Surround, having bought a new projector in 2001. Although we try to present something for everyone, we quickly discovered that the people of Faversham and beyond want good quality, serious films, hence our excellent relationship with the Faversham Film Society over many years.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Good family films are also in demand and most of the big budget block-busters are popular here. We have requests for classic films and repeats of not-so-new films. These presentations are usually well attended. Our uniformed staff are here to give friendly advice and help to customers, many of whom support the cinema on an incredibly regular basis - in fact we get worried when regulars don't appear on their usual night!&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Known affectionately as 'a lovely little cinema', the Royal is actually quite large, built as an Odeon in 1936. It is one of only about 100 surviving original big-screen cinemas in the UK. The auditorium has not been reduced in size, although some of the seats, which originally numbered over 700, have been removed.&lt;/div&gt;&lt;div&gt;Parking is easy in the Bank Street car park, within 400 yards of the cinema. It is free in the evenings, of course.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The listed building's facade disguises its typical brick, concrete and steel construction. It is one of only two surviving mock-Tudor cinemas in the UK. The accomplished designer was the great cinema Andrew Mather, and his aim was to ensure that the building harmonised with its predominantly medieval surroundings - the town has nearly 500 other listed buildings, many of 13th-16th century date.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Together with the people, we have made the Royal a cinema of which the town is proud&lt;/div&gt;</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>2</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>679px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingTop</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>About Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextColor</string>
+							<key>objectValue</key>
+							<string>#CCCCCC</string>
+						</dict>
+					</array>
+					<key>B100FF72-13D4-488D-B28F-A70B28863C76-1109-0000032A0DF5E9B6</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontFamily</string>
+							<key>objectValue</key>
+							<string>Arial,Helvetica,Sans-Serif</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingRight</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>24px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WordWrap</string>
+							<key>objectValue</key>
+							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>16px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WhiteSpaceCollapsing</string>
+							<key>objectValue</key>
+							<string>preserve</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>28px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>16px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string>About Us</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>98px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingTop</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>About Heading</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextColor</string>
+							<key>objectValue</key>
+							<string>#CCCCCC</string>
+						</dict>
+					</array>
+				</dict>
 				<key>properties</key>
 				<dict>
 					<key>backgroundColor</key>
-					<string>#CCCCCC</string>
+					<string>#000000</string>
 					<key>perspective</key>
 					<real>600</real>
 				</dict>
@@ -61,7 +328,179 @@
 				<array>
 					<dict>
 						<key>animations</key>
-						<array/>
+						<array>
+							<dict>
+								<key>duration</key>
+								<real>3</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1.000000</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<true/>
+								<key>oid</key>
+								<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0.000000</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>9FEEB513-2700-41FB-9946-B4449961E3DC-1109-00000A03F25EEF02</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>3</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Top</string>
+									<key>objectValue</key>
+									<string>60px</string>
+								</dict>
+								<key>identifier</key>
+								<string>Top</string>
+								<key>isRelative</key>
+								<true/>
+								<key>oid</key>
+								<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Top</string>
+									<key>objectValue</key>
+									<string>302px</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>5C0753AE-B993-46B6-90DA-D2DF04A692F6-1109-00000A0698106002</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>3</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Left</string>
+									<key>objectValue</key>
+									<string>72px</string>
+								</dict>
+								<key>identifier</key>
+								<string>Left</string>
+								<key>isRelative</key>
+								<true/>
+								<key>oid</key>
+								<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Left</string>
+									<key>objectValue</key>
+									<string>72px</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>ABB71572-C818-4C99-BDFC-A4AF7586990B-1109-00000A06AF4E2D8D</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Top</string>
+								<key>isRelative</key>
+								<false/>
+								<key>oid</key>
+								<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Top</string>
+									<key>objectValue</key>
+									<string>60px</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>F3AC74F2-DE9C-4FB1-B360-212E2AD218EE-1109-00000A069817ADE6</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Left</string>
+								<key>isRelative</key>
+								<false/>
+								<key>oid</key>
+								<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Left</string>
+									<key>objectValue</key>
+									<string>72px</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>741A03B1-D25D-4ACC-B0F2-9A3680225F0D-1109-00000A06AF548D3A</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>oid</key>
+								<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1.000000</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>A2DC6DC1-6CA2-4CF6-8425-9D407A606D83-1109-00000A08CCB587F0</string>
+							</dict>
+						</array>
 						<key>framesPerSecond</key>
 						<integer>30</integer>
 						<key>hidden</key>
@@ -76,15 +515,17 @@
 				</array>
 			</dict>
 			<key>name</key>
-			<string>Home</string>
+			<string>History</string>
 			<key>oid</key>
 			<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 0}</string>
+			<string>{7, 0}</string>
 			<key>selectedObjects</key>
-			<array/>
+			<array>
+				<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
+			</array>
 			<key>splitHeight</key>
-			<real>440</real>
+			<real>404</real>
 		</dict>
 	</array>
 	<key>scripts</key>
