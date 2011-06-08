@@ -24,7 +24,7 @@
 	<key>resources</key>
 	<array/>
 	<key>sceneSize</key>
-	<string>{600, 400}</string>
+	<string>{840, 400}</string>
 	<key>scenes</key>
 	<array>
 		<dict>
@@ -53,7 +53,7 @@
 				<key>properties</key>
 				<dict>
 					<key>backgroundColor</key>
-					<string>#FFFFFF</string>
+					<string>#CCCCCC</string>
 					<key>perspective</key>
 					<real>600</real>
 				</dict>
@@ -81,6 +81,8 @@
 			<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
 			<key>scrollViewOffset</key>
 			<string>{0, 0}</string>
+			<key>selectedObjects</key>
+			<array/>
 			<key>splitHeight</key>
 			<real>440</real>
 		</dict>

@@ -34,7 +34,7 @@
 	
 	var attributeTransformerMapping = {"BorderColorRight":"ColorValueTransformer","BackgroundColor":"ColorValueTransformer","BorderWidthBottom":"PixelValueTransformer","WordSpacing":"PixelValueTransformer","BoxShadowXOffset":"PixelValueTransformer","Opacity":"FractionalValueTransformer","BorderWidthRight":"PixelValueTransformer","BorderWidthTop":"PixelValueTransformer","BoxShadowColor":"ColorValueTransformer","BorderColorBottom":"ColorValueTransformer","FontSize":"PixelValueTransformer","BorderRadiusTopRight":"PixelValueTransformer","TextColor":"ColorValueTransformer","Rotate":"DegreeValueTransformer","Height":"PixelValueTransformer","PaddingLeft":"PixelValueTransformer","BorderColorTop":"ColorValueTransformer","Top":"PixelValueTransformer","BackgroundGradientStartColor":"ColorValueTransformer","TextShadowXOffset":"PixelValueTransformer","PaddingTop":"PixelValueTransformer","BackgroundGradientAngle":"DegreeValueTransformer","PaddingBottom":"PixelValueTransformer","PaddingRight":"PixelValueTransformer","Width":"PixelValueTransformer","TextShadowColor":"ColorValueTransformer","BorderColorLeft":"ColorValueTransformer","ReflectionOffset":"PixelValueTransformer","Left":"PixelValueTransformer","BorderRadiusBottomRight":"PixelValueTransformer","LineHeight":"PixelValueTransformer","BoxShadowYOffset":"PixelValueTransformer","ReflectionDepth":"FractionalValueTransformer","BorderRadiusTopLeft":"PixelValueTransformer","BorderRadiusBottomLeft":"PixelValueTransformer","TextShadowBlurRadius":"PixelValueTransformer","TextShadowYOffset":"PixelValueTransformer","BorderWidthLeft":"PixelValueTransformer","BackgroundGradientEndColor":"ColorValueTransformer","BoxShadowBlurRadius":"PixelValueTransformer","LetterSpacing":"PixelValueTransformer"};
 
-var scenes = [{"timelines":{"kTimelineDefaultIdentifier":{"framesPerSecond":30,"animations":[],"identifier":"kTimelineDefaultIdentifier","name":"Main Timeline","duration":0}},"id":"DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856","sceneIndex":0,"perspective":"600px","oid":"DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856","initialValues":{},"name":"Home","backgroundColor":"#FFFFFF"}];
+var scenes = [{"timelines":{"kTimelineDefaultIdentifier":{"framesPerSecond":30,"animations":[],"identifier":"kTimelineDefaultIdentifier","name":"Main Timeline","duration":0}},"id":"DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856","sceneIndex":0,"perspective":"600px","oid":"DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856","initialValues":{},"name":"Home","backgroundColor":"#CCCCCC"}];
 
 var javascriptMapping = {};
 
@@ -55,7 +55,7 @@ var javascriptMapping = {};
 	hypeDoc.currentSceneIndex = 0;
 	hypeDoc.mainContentContainerID = "cinema_hype_container";
 	hypeDoc.resourcesFolderName = resourcesFolderName;
-	hypeDoc.showHypeBuiltWatermark = 1;
+	hypeDoc.showHypeBuiltWatermark = 0;
 	hypeDoc.showLoadingPage = false;
 	hypeDoc.drawSceneBackgrounds = true;
 	hypeDoc.documentName = documentName;
