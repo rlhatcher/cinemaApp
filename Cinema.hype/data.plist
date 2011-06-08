@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>currentScene</key>
+	<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
+	<key>documentVersion</key>
+	<string>38</string>
+	<key>drawSceneBackgrounds</key>
+	<true/>
+	<key>layout</key>
+	<dict>
+		<key>mainWindowFrame</key>
+		<string>0 99 1280 679 0 0 1280 778 </string>
+		<key>openTabs</key>
+		<array/>
+		<key>selectedTabIndex</key>
+		<integer>0</integer>
+		<key>showSceneTabView</key>
+		<true/>
+		<key>splitHeight</key>
+		<real>440</real>
+	</dict>
+	<key>resources</key>
+	<array/>
+	<key>sceneSize</key>
+	<string>{600, 400}</string>
+	<key>scenes</key>
+	<array>
+		<dict>
+			<key>animationController</key>
+			<dict>
+				<key>additionalAttributesToShow</key>
+				<dict/>
+				<key>expandedItems</key>
+				<array/>
+				<key>timeCursors</key>
+				<dict>
+					<key>kTimelineDefaultIdentifier</key>
+					<real>0.0</real>
+				</dict>
+				<key>timescale</key>
+				<integer>60</integer>
+			</dict>
+			<key>canvasSize</key>
+			<string>{1280, 440}</string>
+			<key>context</key>
+			<dict>
+				<key>currentTimelineIdentifier</key>
+				<string>kTimelineDefaultIdentifier</string>
+				<key>elements</key>
+				<dict/>
+				<key>properties</key>
+				<dict>
+					<key>backgroundColor</key>
+					<string>#FFFFFF</string>
+					<key>perspective</key>
+					<real>600</real>
+				</dict>
+				<key>timelines</key>
+				<array>
+					<dict>
+						<key>animations</key>
+						<array/>
+						<key>framesPerSecond</key>
+						<integer>30</integer>
+						<key>hidden</key>
+						<false/>
+						<key>identifier</key>
+						<string>kTimelineDefaultIdentifier</string>
+						<key>name</key>
+						<string>Main Timeline</string>
+						<key>userDefinedDuration</key>
+						<real>0.0</real>
+					</dict>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Home</string>
+			<key>oid</key>
+			<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
+			<key>scrollViewOffset</key>
+			<string>{0, 0}</string>
+			<key>splitHeight</key>
+			<real>440</real>
+		</dict>
+	</array>
+	<key>scripts</key>
+	<array/>
+	<key>showLoadingPage</key>
+	<false/>
+	<key>unsupportedBrowserIdentifiers</key>
+	<array/>
+</dict>
+</plist>
