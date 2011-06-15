@@ -137,13 +137,13 @@
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>1.0333333015441895</real>
+					<real>1</real>
 				</dict>
 				<key>timescale</key>
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{1280, 697}</string>
+			<string>{1280, 633}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -154,9 +154,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#CCCCCC</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -180,7 +180,7 @@
 							<key>identifier</key>
 							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>1.000000</string>
+							<string>0.000000</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -204,7 +204,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>72px</string>
+							<string>82px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -228,25 +228,19 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>547px</string>
+							<string>366px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>16px</string>
+							<string>9px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>&lt;div&gt;Faversham's Royal Cinema in the Market Place was reopened in 1994 by Peter Baldock and Michael Harlow. It was an immediate success and has gone from strength to strength. Over the years a huge amount of money - including £9,000 collected by the Royal Action Group (RAG) - has been invested in the building and its equipment.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The RAG funded a hundred new seats and repairs to the roof and guttering. The proprietors have upgraded the sound system to full Dolby Stereo Surround, having bought a new projector in 2001. Although we try to present something for everyone, we quickly discovered that the people of Faversham and beyond want good quality, serious films, hence our excellent relationship with the Faversham Film Society over many years.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Good family films are also in demand and most of the big budget block-busters are popular here. We have requests for classic films and repeats of not-so-new films. These presentations are usually well attended. Our uniformed staff are here to give friendly advice and help to customers, many of whom support the cinema on an incredibly regular basis - in fact we get worried when regulars don't appear on their usual night!&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Known affectionately as 'a lovely little cinema', the Royal is actually quite large, built as an Odeon in 1936. It is one of only about 100 surviving original big-screen cinemas in the UK. The auditorium has not been reduced in size, although some of the seats, which originally numbered over 700, have been removed.&lt;/div&gt;&lt;div&gt;Parking is easy in the Bank Street car park, within 400 yards of the cinema. It is free in the evenings, of course.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The listed building's facade disguises its typical brick, concrete and steel construction. It is one of only two surviving mock-Tudor cinemas in the UK. The accomplished designer was the great cinema Andrew Mather, and his aim was to ensure that the building harmonised with its predominantly medieval surroundings - the town has nearly 500 other listed buildings, many of 13th-16th century date.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Together with the people, we have made the Royal a cinema of which the town is proud&lt;/div&gt;</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>PaddingLeft</string>
-							<key>objectValue</key>
-							<string>8px</string>
+							<string>{{ Today }}</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -259,6 +253,12 @@
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>652px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -280,9 +280,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#CCCCCC</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>062E1BA0-EB81-46CA-AA38-22AFF7912599-977-0000097ECDF2BF9C</key>
@@ -1244,7 +1244,65 @@
 					</dict>
 					<dict>
 						<key>animations</key>
-						<array/>
+						<array>
+							<dict>
+								<key>duration</key>
+								<real>1</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1.000000</string>
+								</dict>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<true/>
+								<key>oid</key>
+								<string>006587A9-EA26-49B6-995C-0F8F1124D6D7-3786-0000271410E6C0B3</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>0.000000</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>A84AA1E4-12BD-46D3-8865-2E62231B10B5-30441-00012EB817BC97B4</string>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>Opacity</string>
+								<key>isRelative</key>
+								<false/>
+								<key>oid</key>
+								<string>006587A9-EA26-49B6-995C-0F8F1124D6D7-3786-0000271410E6C0B3</string>
+								<key>startTime</key>
+								<real>1</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Opacity</string>
+									<key>objectValue</key>
+									<string>1.000000</string>
+								</dict>
+								<key>timingFunction</key>
+								<string>easeinout</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>88485258-72CA-4E17-9FDA-803095BE3D7C-30441-00012EBA23266942</string>
+							</dict>
+						</array>
 						<key>framesPerSecond</key>
 						<integer>30</integer>
 						<key>hidden</key>
@@ -1335,7 +1393,7 @@
 			<key>oid</key>
 			<string>33CABA23-7687-4488-B2C4-75D288125110-977-000009723F3E9E46</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 0}</string>
+			<string>{0, 68}</string>
 			<key>selectedObjects</key>
 			<array/>
 			<key>splitHeight</key>
@@ -3986,9 +4044,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#CCCCCC</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4082,15 +4140,15 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>638px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>638px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4112,9 +4170,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#CCCCCC</string>
 						</dict>
 					</array>
 				</dict>
