@@ -240,7 +240,8 @@ class rcfComingSoonHandler(BaseHandler):
 class rcfAboutUsHandler(BaseHandler):
     """Display the About Us page for the Royal Cinema"""
     def get(self):
-        self.render("rcfAboutUs.html")
+        aboutTodayText = 'this is a chuck of text from Python - dude'
+        self.render("rcfAboutUs.html", aboutTodayText=aboutTodayText)
 
 class rcfContactUsHandler(BaseHandler):
     """Display the About Us page for the Royal Cinema"""

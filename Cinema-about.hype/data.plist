@@ -11,15 +11,22 @@
 	<key>layout</key>
 	<dict>
 		<key>mainWindowFrame</key>
-		<string>0 197 1280 981 0 0 1920 1178 </string>
+		<string>0 99 1280 679 0 0 1280 778 </string>
 		<key>openTabs</key>
-		<array/>
+		<array>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>55C8E3E1-8E61-4D2F-A683-E6A80ACF3EAC-1671-00000ECA3D888042</string>
+			</dict>
+		</array>
 		<key>selectedTabIndex</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>showSceneTabView</key>
 		<true/>
 		<key>splitHeight</key>
-		<real>565</real>
+		<real>502</real>
 	</dict>
 	<key>resources</key>
 	<array>
@@ -143,9 +150,16 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{1280, 633}</string>
+			<string>{1280, 520}</string>
 			<key>context</key>
 			<dict>
+				<key>OnSceneLoadAction</key>
+				<dict>
+					<key>javascriptOid</key>
+					<string>55C8E3E1-8E61-4D2F-A683-E6A80ACF3EAC-1671-00000ECA3D888042</string>
+					<key>type</key>
+					<integer>4</integer>
+				</dict>
 				<key>currentTimelineIdentifier</key>
 				<string>kTimelineDefaultIdentifier</string>
 				<key>elements</key>
@@ -154,9 +168,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#CCCCCC</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -234,13 +248,16 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>9px</string>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>{{ Today }}</string>
+							<string>   &lt;script type="text/javascript"&gt;&lt;!--
+                                 var myText="Text goes here dude";
+                                 --&gt;
+                            &lt;/script&gt;</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -250,15 +267,15 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>652px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>652px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -280,9 +297,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#CCCCCC</string>
 						</dict>
 					</array>
 					<key>062E1BA0-EB81-46CA-AA38-22AFF7912599-977-0000097ECDF2BF9C</key>
@@ -529,6 +546,129 @@
 							<string>Cursor</string>
 							<key>objectValue</key>
 							<string>pointer</string>
+						</dict>
+					</array>
+					<key>0DB46E8C-8D4F-497A-8F79-642995F05370-1671-00000F2F887F8C70</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingRight</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>16px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WordWrap</string>
+							<key>objectValue</key>
+							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>237px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WhiteSpaceCollapsing</string>
+							<key>objectValue</key>
+							<string>preserve</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>297px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string></string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>10</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingTop</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextColor</string>
+							<key>objectValue</key>
+							<string>#000000</string>
 						</dict>
 					</array>
 					<key>1947F8CF-5363-41AE-9658-8CBF70CD3AC2-977-000009723EDDD2FA</key>
@@ -1393,11 +1533,13 @@
 			<key>oid</key>
 			<string>33CABA23-7687-4488-B2C4-75D288125110-977-000009723F3E9E46</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 68}</string>
+			<string>{0, 0}</string>
 			<key>selectedObjects</key>
-			<array/>
+			<array>
+				<string>006587A9-EA26-49B6-995C-0F8F1124D6D7-3786-0000271410E6C0B3</string>
+			</array>
 			<key>splitHeight</key>
-			<real>565</real>
+			<real>502</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -3287,7 +3429,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{1280, 697}</string>
+			<string>{1280, 675}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -4044,9 +4186,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#CCCCCC</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4134,12 +4276,6 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ZIndex</string>
-							<key>objectValue</key>
-							<string>2</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
@@ -4149,6 +4285,12 @@
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>638px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>2</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4170,9 +4312,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#CCCCCC</string>
+							<string>div</string>
 						</dict>
 					</array>
 				</dict>
@@ -4585,11 +4727,39 @@
 				<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
 			</array>
 			<key>splitHeight</key>
-			<real>565</real>
+			<real>502</real>
 		</dict>
 	</array>
 	<key>scripts</key>
-	<array/>
+	<array>
+		<dict>
+			<key>oid</key>
+			<string>55C8E3E1-8E61-4D2F-A683-E6A80ACF3EAC-1671-00000ECA3D888042</string>
+			<key>source</key>
+			<string>function untitledFunction(hypeDocument, element) {
+	/*	
+		hypeDocument - access to the hype document API:
+						METHODS:
+						hypeDocument.documentName()
+						hypeDocument.sceneNames()
+						hypeDocument.currentSceneName()
+						hypeDocument.showSceneNamed(sceneName, optionalTransition)
+						hypeDocument.showNextScene(optionalTransition)
+						hypeDocument.showPreviousScene(optionalTransition)
+						hypeDocument.playTimelineNamed(timelineName)
+
+						MORE INFO:
+						http://www.tumultco.com/hype/documentation/api/
+	
+		element - DOMHTMLElement that triggered this function being called
+	*/
+	
+	document.getElementById('006587A9-EA26-49B6-995C-0F8F1124D6D7-3786-0000271410E6C0B3').innerHTML = cinemaTodayText;
+	
+}
+</string>
+		</dict>
+	</array>
 	<key>showLoadingPage</key>
 	<false/>
 	<key>unsupportedBrowserIdentifiers</key>
