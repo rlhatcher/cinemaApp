@@ -61,6 +61,10 @@ class Movie(db.Model):
     def get_runtime(self):
         return self.runtimes[0]
 
+class Subscriber(db.Model):
+    """A mailing list subscriber"""
+    emailAddres = db.StringProperty();
+
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
     @functools.wraps(method)

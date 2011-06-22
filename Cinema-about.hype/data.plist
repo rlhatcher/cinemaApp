@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentScene</key>
-	<string>33CABA23-7687-4488-B2C4-75D288125110-977-000009723F3E9E46</string>
+	<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
 	<key>documentVersion</key>
 	<string>38</string>
 	<key>drawSceneBackgrounds</key>
@@ -22,11 +22,11 @@
 			</dict>
 		</array>
 		<key>selectedTabIndex</key>
-		<integer>1</integer>
+		<integer>0</integer>
 		<key>showSceneTabView</key>
 		<true/>
 		<key>splitHeight</key>
-		<real>502</real>
+		<real>357</real>
 	</dict>
 	<key>resources</key>
 	<array>
@@ -168,9 +168,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#CCCCCC</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -261,12 +261,6 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ZIndex</string>
-							<key>objectValue</key>
-							<string>9</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>PaddingLeft</string>
 							<key>objectValue</key>
 							<string>8px</string>
@@ -276,6 +270,12 @@
 							<string>Width</string>
 							<key>objectValue</key>
 							<string>652px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>9</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -297,9 +297,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#CCCCCC</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>062E1BA0-EB81-46CA-AA38-22AFF7912599-977-0000097ECDF2BF9C</key>
@@ -552,9 +552,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#000000</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -630,9 +630,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>ZIndex</string>
+							<string>PaddingLeft</string>
 							<key>objectValue</key>
-							<string>10</string>
+							<string>8px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -642,9 +642,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>PaddingLeft</string>
+							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>8px</string>
+							<string>10</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -666,9 +666,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#000000</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>1947F8CF-5363-41AE-9658-8CBF70CD3AC2-977-000009723EDDD2FA</key>
@@ -1535,9 +1535,7 @@
 			<key>scrollViewOffset</key>
 			<string>{0, 0}</string>
 			<key>selectedObjects</key>
-			<array>
-				<string>006587A9-EA26-49B6-995C-0F8F1124D6D7-3786-0000271410E6C0B3</string>
-			</array>
+			<array/>
 			<key>splitHeight</key>
 			<real>502</real>
 		</dict>
@@ -1559,7 +1557,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{1280, 565}</string>
+			<string>{1280, 520}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -1816,9 +1814,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>346px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1930,9 +1928,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>346px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>69EFF7BE-7EB9-4537-B8E9-802931E0E7A8-977-000009B8022C6138</key>
@@ -2439,9 +2437,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>346px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2553,18 +2551,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>346px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>C2C7DA1C-4CE5-4D9D-A10B-984650EA4020-977-000007CB1C5C90AB</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>346px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2682,9 +2680,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>346px</string>
+							<string>div</string>
 						</dict>
 					</array>
 				</dict>
@@ -3409,7 +3407,7 @@
 			<key>selectedObjects</key>
 			<array/>
 			<key>splitHeight</key>
-			<real>565</real>
+			<real>502</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -4186,9 +4184,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#CCCCCC</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4282,15 +4280,15 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>638px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>2</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>638px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4312,9 +4310,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#CCCCCC</string>
 						</dict>
 					</array>
 				</dict>
@@ -4721,13 +4719,13 @@
 			<key>oid</key>
 			<string>DD688399-B907-4D33-9B57-03B171016F88-1109-00000194A4978856</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 0}</string>
+			<string>{0, 20}</string>
 			<key>selectedObjects</key>
 			<array>
 				<string>AEEE0641-FC76-4325-9E0D-6B7D0A4675CB-1109-0000037328005CA8</string>
 			</array>
 			<key>splitHeight</key>
-			<real>502</real>
+			<real>357</real>
 		</dict>
 	</array>
 	<key>scripts</key>
