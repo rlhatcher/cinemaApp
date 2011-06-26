@@ -42,6 +42,7 @@ var HYPE = (function HYPE() {
 	this.transitionTimingFunctionMapping = {"linear" : "linear", "easein" : "ease-in", "easeout" : "ease-out", "easeinout" : "ease-in-out" };
 	this.cssTransitionsSupported = false;
 	this.actionHandlers = {};
+	this.timelineCompletionOverrideCallback = null;
 
 	// set from the DocumentLoader
 	this.documentName = null;
@@ -565,11 +566,11 @@ var HYPE = (function HYPE() {
 			\
 			@-webkit-keyframes HYPE_swapToFront {\
 				0% {\
-					-webkit-transform: translate3d(-150px, 0px, -600px) rotateY(50deg);\
+					-webkit-transform: translate3d(-175px, 0px, -600px) rotateY(50deg);\
 					-webkit-animation-timing-function: ease-in;\
 				}\
 				50% {\
-					-webkit-transform: translate3d(-300px, 0px, -300px) rotateY(40deg);\
+					-webkit-transform: translate3d(-350px, 0px, -300px) rotateY(40deg);\
 					-webkit-animation-timing-function: ease-out;\
 				}\
 				100% {\
@@ -583,12 +584,12 @@ var HYPE = (function HYPE() {
 					-webkit-animation-timing-function: ease-in;\
 				}\
 				50% {\
-					-webkit-transform: translate3d(300px, 0px, -300px) rotateY(-20deg);\
+					-webkit-transform: translate3d(350px, 0px, -300px) rotateY(-20deg);\
 					-webkit-animation-timing-function: ease-out;\
 				}\
 			\
 				100% {\
-					-webkit-transform: translate3d(150px, 0px, -600px) rotateY(-50deg);\
+					-webkit-transform: translate3d(175px, 0px, -600px) rotateY(-50deg);\
 				}\
 			}\
 			\
@@ -668,29 +669,43 @@ var HYPE = (function HYPE() {
 			return;
 		}
 	
+		var hypeDoc = this;
+		var finishShowScene = (function() {
+			if(hypeDoc.browserInfo.webkit != null) { // webkit
+				if(transition == null || transition == hypeDoc.kSceneTransitionInstant) {
+					hypeDoc.showSceneWithInstant(sceneNumber);
+				} else if(transition == hypeDoc.kSceneTransitionCrossfade) {
+					hypeDoc.showSceneWithCrossfade(sceneNumber);
+				} else if(transition == hypeDoc.kSceneTransitionSwap) {
+					hypeDoc.showSceneWithSwap(sceneNumber);
+				} else if(transition == hypeDoc.kSceneTransitionPushLeftToRight || transition == hypeDoc.kSceneTransitionPushRightToLeft || transition == hypeDoc.kSceneTransitionPushBottomToTop || transition == hypeDoc.kSceneTransitionPushTopToBottom) {
+					hypeDoc.showSceneWithPush(sceneNumber, transition);
+				}
+			} else { // everything else
+				hypeDoc.showSceneWithInstant(sceneNumber);
+			}
+		});
+	
+
 		// handle scene unload event
+		var hasUnloadTimelineRun = false;
 		var currentSceneContainer = document.getElementById(this.currentSceneIdentifier());
-		if(this.currentSceneContainer != null) {
+		
+		if(sceneNumber != this.currentSceneIndex && currentSceneContainer != null) {
 			var sceneIndex = this.indexOfSceneWithIdentifier(this.currentSceneIdentifier());
 			var onSceneUnloadData = this.scenes[sceneIndex]["onSceneUnloadAction"];
 			if(onSceneUnloadData != null) {
-				var onUnloadFunction = this.Apply.CreateActionHandler(this, onSceneUnloadData, this.currentSceneContainer);
-				onUnloadFunction(this.currentSceneContainer);
+				var onUnloadFunction = this.Apply.CreateActionHandler(this, onSceneUnloadData, null);
+				if(onSceneUnloadData["type"] == this.kActionPlayTimeline && onSceneUnloadData["timelineIdentifier"] != null) {
+					hasUnloadTimelineRun = true;
+					this.timelineCompletionOverrideCallback = finishShowScene;
+				}
+				onUnloadFunction(null);
 			}
 		}
 	
-		if(this.browserInfo.webkit != null) { // webkit
-			if(transition == null || transition == this.kSceneTransitionInstant) {
-				this.showSceneWithInstant(sceneNumber);
-			} else if(transition == this.kSceneTransitionCrossfade) {
-				this.showSceneWithCrossfade(sceneNumber);
-			} else if(transition == this.kSceneTransitionSwap) {
-				this.showSceneWithSwap(sceneNumber);
-			} else if(transition == this.kSceneTransitionPushLeftToRight || transition == this.kSceneTransitionPushRightToLeft || transition == this.kSceneTransitionPushBottomToTop || transition == this.kSceneTransitionPushTopToBottom) {
-				this.showSceneWithPush(sceneNumber, transition);
-			}
-		} else { // everything else
-			this.showSceneWithInstant(sceneNumber);
+		if(hasUnloadTimelineRun == false) {
+			finishShowScene();
 		}
 	}
 
@@ -965,6 +980,9 @@ var HYPE = (function HYPE() {
 			eventName = "onmouseenter";
 		} else if(eventName == "onmouseout" && this.browserInfo.ie != null) {
 			eventName = "onmouseleave";
+		} else if(eventName == "onclick") {
+			// convert click events to mouse up events because in the case of buttons, the innerhtml change can squash the click event
+			eventName = "onmouseup";
 		}
 		
 		var elementActionHandlers = this.actionHandlers[element.id];
@@ -1123,17 +1141,29 @@ var HYPE = (function HYPE() {
 		
 		document.getElementById(this.mainContentContainerID).style["-webkit-perspective"] = null;
 		
+		var hypeDoc = this;
+		var finishCompleteSceneTransition = (function() {
+			// begin any animations
+			hypeDoc.stopAllTimelineRuns();
+			hypeDoc.startTimelineRun(hypeDoc.kTimelineDefaultIdentifier, null);
+		});
+		
 		// scene load event
+		var hasLoadTimelineRun = false;
 		var sceneIndex = this.indexOfSceneWithIdentifier(nextSceneContainer.id);
 		var onSceneLoadData = this.scenes[sceneIndex]["onSceneLoadAction"];
 		if(onSceneLoadData != null) {
-			var onLoadFunction = this.Apply.CreateActionHandler(this, onSceneLoadData, nextSceneContainer);
-			onLoadFunction(nextSceneContainer);
+			var onLoadFunction = this.Apply.CreateActionHandler(this, onSceneLoadData, null);
+			if(onSceneLoadData["type"] == this.kActionPlayTimeline && onSceneLoadData["timelineIdentifier"] != null) {
+				hasLoadTimelineRun = true;
+				this.timelineCompletionOverrideCallback = finishCompleteSceneTransition;
+			}
+			onLoadFunction(null);
 		}
 		
-		// begin any animations
-		this.stopAllTimelineRuns();
-		this.startTimelineRun(this.kTimelineDefaultIdentifier, null);
+		if(hasLoadTimelineRun == false) {
+			finishCompleteSceneTransition();
+		}
 	}
 
 	this.untransformValue = function (value, transformerClassName) {
@@ -1214,8 +1244,8 @@ var HYPE = (function HYPE() {
 			}
 			this.Apply[attributeIdentifier](this, value, element);
 		} catch(err) {
-			if(parent != null && parent.console != null && parent.console.log != null) {
-				parent.console.log("error applying " + attributeIdentifier + " : " + value + " -- " + err);
+			if(window.console && console.log) {
+				console.log("error applying " + attributeIdentifier + " : " + value + " -- " + err);
 			}
 		}
 	}
@@ -1455,14 +1485,19 @@ var HYPE = (function HYPE() {
 			this.applyValue(element, timelineRun.activeAnimations[i]["identifier"], timelineRun.activeAnimations[i]["endValue"], true);
 		}
 		
-		// perform action if exists
-		var currentSceneContainer = document.getElementById(this.currentSceneIdentifier());
-		if(currentSceneContainer != null) {
-			var sceneIndex = this.indexOfSceneWithIdentifier(this.currentSceneIdentifier());
-			var onSceneAnimationCompleteData = this.scenes[sceneIndex]["onSceneAnimationCompleteAction"];
-			if(onSceneAnimationCompleteData != null) {
-				var onSceneAnimationCompleteFunction = this.Apply.CreateActionHandler(this, onSceneAnimationCompleteData, currentSceneContainer);
-				onSceneAnimationCompleteFunction(currentSceneContainer);
+		if(this.timelineCompletionOverrideCallback != null) {
+			this.timelineCompletionOverrideCallback();
+			this.timelineCompletionOverrideCallback = null;
+		} else {		
+			// perform action if exists
+			var currentSceneContainer = document.getElementById(this.currentSceneIdentifier());
+			if(currentSceneContainer != null) {
+				var sceneIndex = this.indexOfSceneWithIdentifier(this.currentSceneIdentifier());
+				var onSceneAnimationCompleteData = this.scenes[sceneIndex]["onSceneAnimationCompleteAction"];
+				if(onSceneAnimationCompleteData != null) {
+					var onSceneAnimationCompleteFunction = this.Apply.CreateActionHandler(this, onSceneAnimationCompleteData, currentSceneContainer);
+					onSceneAnimationCompleteFunction(currentSceneContainer);
+				}
 			}
 		}
 	}
@@ -1503,8 +1538,8 @@ var HYPE = (function HYPE() {
 							animation["relativeStartValue"] = this.currentValues[oid][identifier];
 						}
 					} catch(exception) {
-						if(parent != null && parent.console != null && parent.console.log != null) {
-							parent.console.log("failed getting a currentValue: " + exception);
+						if(window.console && console.log) {
+							console.log("failed getting a currentValue: " + exception);
 						}
 					}
 				
@@ -1811,6 +1846,7 @@ var HYPE = (function HYPE() {
 			},
 
 			Width : function (hypeDoc, value, element) {
+				value = "" + (Math.max(0, parseInt(value))) + "px";
 				element.style.width = value;
 				
 				// for IE QT plugin	
@@ -1821,6 +1857,7 @@ var HYPE = (function HYPE() {
 			},
 
 			Height : function (hypeDoc, value, element) {
+				value = "" + (Math.max(0, parseInt(value))) + "px";
 				element.style.height = value;
 				
 				// for IE QT plugin
@@ -1889,7 +1926,11 @@ var HYPE = (function HYPE() {
 				}
 				
 				if(hypeDoc.browserInfo.android == null) {
-					element.style["-webkit-box-reflect"] = "below " + reflectionOffset + " -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(" + (1.0 - value) + ", transparent), to(rgba(255, 255, 255, .5)))";
+					if((1.0 - value) == 1.0 && element.style.removeProperty != null) {
+						element.style.removeProperty("-webkit-box-reflect");
+					} else {
+						element.style["-webkit-box-reflect"] = "below " + reflectionOffset + " -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(" + (1.0 - value) + ", transparent), to(rgba(255, 255, 255, .5)))";
+					}
 				}
 			},
 
@@ -1943,6 +1984,7 @@ var HYPE = (function HYPE() {
 				var opacity8 = element.getAttribute("HYPE_MS_opacity8");
 				var opacity5 = element.getAttribute("HYPE_MS_opacity5");
 				var rotation = element.getAttribute("HYPE_MS_rotation");
+				var background = element.getAttribute("HYPE_MS_background");
 				
 				var filterText = "";
 				if(opacity8 != null) {
@@ -1954,16 +1996,26 @@ var HYPE = (function HYPE() {
 				if(rotation != null) {
 					filterText += " " + rotation;
 				}
+				if(background != null) {
+					filterText += " " + background;
+				}
 				
 				element.style["filter"] = filterText;
 			}, 
 
 			Opacity : function (hypeDoc, value, element) {
 				if(hypeDoc.browserInfo.ie != null && hypeDoc.browserInfo.ie < 9) {
-					// ie 8
-					element.setAttribute("HYPE_MS_opacity8", "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + Math.round(value * 100) + ")");
-					// ie 5-7
-					element.setAttribute("HYPE_MS_opacity5", "alpha(opacity=" + Math.round(value * 100) + ")");
+					if(parseInt(value) == 1.0) {
+						// ie 8
+						element.setAttribute("HYPE_MS_opacity8", "");
+						// ie 5-7
+						element.setAttribute("HYPE_MS_opacity5", "");	
+					} else {				
+						// ie 8
+						element.setAttribute("HYPE_MS_opacity8", "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + Math.round(value * 100) + ")");
+						// ie 5-7
+						element.setAttribute("HYPE_MS_opacity5", "alpha(opacity=" + Math.round(value * 100) + ")");						
+					}
 					hypeDoc.Apply.ApplyMSFilters(element);
 				}
 			
@@ -2390,7 +2442,7 @@ var HYPE = (function HYPE() {
 						imgElement.parentNode.removeChild(imgElement);
 					}
 					
-					var img = parent.document.createElement("img");
+					var img = document.createElement("img");
 					img.src = "" + hypeDoc.resourcesFolderName + "/" + value;
 					img.id = imgId;
 					img.style.position = "absolute";
@@ -2399,6 +2451,14 @@ var HYPE = (function HYPE() {
 					img.style.top = "0px";
 					img.style.left = "0px";
 					img.style.zIndex = "-10000";
+					
+					// for pngs on IE 7-8, add a fix for a background color
+					if(hypeDoc.browserInfo.ie != null && hypeDoc.browserInfo.ie < 9 && hypeDoc.browserInfo.ie > 6 && value.substr(value.length-4).toLowerCase() == '.png') {
+						var msBackgroundGradient = "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)";
+						img.setAttribute("HYPE_MS_background", msBackgroundGradient);
+						hypeDoc.Apply.ApplyMSFilters(img);
+					}
+					
 					element.appendChild(img);
 				} else {
 					element.style.backgroundImage = "url('" + (hypeDoc.resourcesFolderName + "/" + value).replace("'", "%27") + "')";
@@ -2512,6 +2572,7 @@ var HYPE = (function HYPE() {
 						element.style.removeProperty("boxShadow");
 						element.style.removeProperty("box-shadow");					
 					}
+					return;
 				}
 				
 				// webkit
@@ -2606,7 +2667,7 @@ var HYPE = (function HYPE() {
 						
 					}*/ else if(type == hypeDoc.kActionPlayTimeline) {
 						if(value["timelineIdentifier"] != null) {
-							hypeDoc.startTimelineRun(value["timelineIdentifier"], element.id);
+							hypeDoc.startTimelineRun(value["timelineIdentifier"], (element != null ? element.id : null));
 						}
 					} else if(type == hypeDoc.kActionRunJavascript) {
 						var functionName = hypeDoc.javascriptMapping[value["javascriptOid"]];

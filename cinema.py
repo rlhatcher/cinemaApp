@@ -247,6 +247,11 @@ class rcfAboutUsHandler(BaseHandler):
         aboutTodayText = 'this is a chuck of text from Python - dude'
         self.render("rcfAboutUs.html", aboutTodayText=aboutTodayText)
 
+class rcfSubscribeHandler(BaseHandler):
+	"""Page for subscribing to film times"""
+	def get(self):
+		self.render("rcfSubscribe.html")
+		
 class rcfContactUsHandler(BaseHandler):
     """Display the About Us page for the Royal Cinema"""
     def get(self):
@@ -302,6 +307,7 @@ application.add_handlers(r"royalcinema\.independent-cinemas\.com", [
     (r"/comingSoon", rcfComingSoonHandler),
     (r"/aboutUs", rcfAboutUsHandler),
     (r"/contactUs", rcfContactUsHandler),
+	(r"/subscribe", rcfSubscribeHandler),
     (r"/image", ImageHandler),
     ])
 
