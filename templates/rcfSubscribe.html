@@ -16,11 +16,13 @@
                 <div class="inner">
                     <div id="adcontent">
                         <h3>Subscribe to <span>Film Times</span></h3>
-						<div id="subscribe_hype_container" style="position:relative;overflow:hidden;width:700px;height:43px;">
-							<script type="text/javascript" src="/static/Subscribe_Resources/subscribe_hype_generated_script.js?96534"></script>
+						<div id="fader" onload="fadeEffect.init('fader', 1)">
+							<form id="contacts-form" action="/subscribe">
+							        <div class="field"><label>Your E-mail:</label><input type="text" value=""></div>
+									<a href="#" id="ronfade" class="link3" onclick="fadeEffect.init('fader', 0);document.getElementById('contacts-form').submit()"><span><span>Subscribe</span></span></a>
+							</form>
 						</div>
                     </div>
-				    <a href="#" class="link3" onclick="document.getElementById('contacts-form').submit()"><span><span>Subscribe</span></span></a>
                     <div id="scraper">
                         {{ modules.AdScraper() }}
                             <br />

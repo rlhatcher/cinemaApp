@@ -221,3 +221,6 @@ h5 {font-size:15px;line-height:1em;letter-spacing:-1px;color:#bfbfbf;margin-bott
 #scraper {margin:0;width:120px;float:right;}
 #scraper ins {padding-bottom:10px !important;}
 #adcontent {width:700px;float:left;clear:left;padding-right:20px;}
+
+#fader{opacity:0;filter:alpha(opacity='0');background-color: #000;width:700px;float:left;clear:left;padding-right:20px; }
+

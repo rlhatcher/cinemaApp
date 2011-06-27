@@ -20,6 +20,36 @@
 	</script>
 	<link href="ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
+<script type="text/javascript"  style="display:none">
+<!--
+var fadeEffect=function(){
+	return{
+		init:function(id, flag, target){
+			this.elem = document.getElementById(id);
+			clearInterval(this.elem.si);
+			this.target = target ? target : flag ? 100 : 0;
+			this.flag = flag || -1;
+			this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
+			this.si = setInterval(function(){fadeEffect.tween()}, 20);
+		},
+		tween:function(){
+			if(this.alpha == this.target){
+				clearInterval(this.si);
+			}else{
+				var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
+				this.elem.style.opacity = value / 100;
+				this.elem.style.filter = 'alpha(opacity=' + value + ')';
+				this.alpha = value
+			}
+		}
+	}
+}();
+
+function load() {
+	fadeEffect.init('fader', 1);
+}
+//-->
+</script>
 {% block head %}{% end %}
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-8402241539489441";
@@ -44,7 +74,7 @@ google_ad_height = 60;
 </script>
 
 </head>
-<body id="page1">
+<body id="page1" onload="load()">
 <div class="tail-top">
     <div class="tail-bottom">
 	    <div id="main">
