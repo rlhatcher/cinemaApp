@@ -3,3 +3,4 @@
 /.xCodeSupport/
 /cms/.xCodeSupport/
 /cms/Build/
+*.pyc

@@ -250,7 +250,8 @@ class rcfAboutUsHandler(BaseHandler):
 class rcfSubscribeHandler(BaseHandler):
 	"""Page for subscribing to film times"""
 	def get(self):
-		self.render("rcfSubscribe.html")
+		active = self.get_argument('active')
+		self.render("rcfSubscribe.html", active=active)
 		
 class rcfContactUsHandler(BaseHandler):
     """Display the About Us page for the Royal Cinema"""

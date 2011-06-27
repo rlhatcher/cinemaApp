@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block tabs %}
 <ul>
-<li><a href="/home">Home</a></li>
-<li><a href="/showingNow">Showing Now</a></li>
-<li><a href="/comingSoon">Coming Soon</a></li>
-<li><a href="/aboutUs" class="active">About Us</a></li>
-<li class="last"><a href="/contactUs">Find Us</a></li>
+<li><a href="/home" {% if active == "home" %}class="active"{% end %}>Home</a></li>
+<li><a href="/showingNow" {% if active == "showing" %}class="active"{% end %}>Showing Now</a></li>
+<li><a href="/comingSoon" {% if active == "coming" %}class="active"{% end %}>Coming Soon</a></li>
+<li><a href="/aboutUs" {% if active == "about" %}class="active"{% end %}>About Us</a></li>
+<li class="last"><a href="/contactUs" {% if active == "contact" %}class="active"{% end %}>Find Us</a></li>
 </ul>
 {% end %}
 {% block body %}
@@ -16,10 +16,11 @@
                 <div class="inner">
                     <div id="adcontent">
                         <h3>Subscribe to <span>Film Times</span></h3>
-						<div id="subscribe_hype_container" style="position:relative;overflow:hidden;width:700px;height:480px;">
-							<script type="text/javascript" src="/static/Subscribe_Resources/subscribe_hype_generated_script.js?62657"></script>
+						<div id="subscribe_hype_container" style="position:relative;overflow:hidden;width:700px;height:43px;">
+							<script type="text/javascript" src="/static/Subscribe_Resources/subscribe_hype_generated_script.js?96534"></script>
 						</div>
                     </div>
+				    <a href="#" class="link3" onclick="document.getElementById('contacts-form').submit()"><span><span>Subscribe</span></span></a>
                     <div id="scraper">
                         {{ modules.AdScraper() }}
                             <br />

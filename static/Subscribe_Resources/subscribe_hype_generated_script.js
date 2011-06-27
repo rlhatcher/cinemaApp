@@ -34,14 +34,35 @@
 	
 	var attributeTransformerMapping = {"BorderRadiusTopLeft":"PixelValueTransformer","BackgroundColor":"ColorValueTransformer","BorderWidthBottom":"PixelValueTransformer","BoxShadowXOffset":"PixelValueTransformer","WordSpacing":"PixelValueTransformer","Opacity":"FractionalValueTransformer","BorderWidthRight":"PixelValueTransformer","BorderWidthTop":"PixelValueTransformer","BoxShadowColor":"ColorValueTransformer","BorderColorBottom":"ColorValueTransformer","FontSize":"PixelValueTransformer","BorderRadiusTopRight":"PixelValueTransformer","TextColor":"ColorValueTransformer","Rotate":"DegreeValueTransformer","Height":"PixelValueTransformer","BorderColorTop":"ColorValueTransformer","PaddingLeft":"PixelValueTransformer","Top":"PixelValueTransformer","BackgroundGradientStartColor":"ColorValueTransformer","TextShadowXOffset":"PixelValueTransformer","PaddingTop":"PixelValueTransformer","BackgroundGradientAngle":"DegreeValueTransformer","PaddingBottom":"PixelValueTransformer","PaddingRight":"PixelValueTransformer","BorderColorLeft":"ColorValueTransformer","Width":"PixelValueTransformer","TextShadowColor":"ColorValueTransformer","ReflectionOffset":"PixelValueTransformer","Left":"PixelValueTransformer","BorderRadiusBottomRight":"PixelValueTransformer","ReflectionDepth":"FractionalValueTransformer","BoxShadowYOffset":"PixelValueTransformer","BorderColorRight":"ColorValueTransformer","LineHeight":"PixelValueTransformer","BorderWidthLeft":"PixelValueTransformer","TextShadowBlurRadius":"PixelValueTransformer","TextShadowYOffset":"PixelValueTransformer","BorderRadiusBottomLeft":"PixelValueTransformer","BackgroundGradientEndColor":"ColorValueTransformer","BoxShadowBlurRadius":"PixelValueTransformer","LetterSpacing":"PixelValueTransformer"};
 
-var scenes = [{"timelines":{"kTimelineDefaultIdentifier":{"framesPerSecond":30,"animations":[{"startValue":"0.000000","isRelative":true,"endValue":"1.000000","identifier":"Opacity","duration":2,"timingFunction":"easeinout","type":0,"oid":"823091C6-644B-40B7-8578-09D1A4F92124-763-000013D809E0E28F","startTime":0},{"startValue":"0.000000","isRelative":true,"endValue":"1.000000","identifier":"Opacity","duration":2,"timingFunction":"easeinout","type":0,"oid":"1722CDB0-EB60-4EC1-9B87-10D606F5A0C2-389-0000042A2BA5915A","startTime":0}],"identifier":"kTimelineDefaultIdentifier","name":"Main Timeline","duration":2}},"id":"1A28CFBC-EE5A-466C-9656-026FEEA6E3BD-389-0000041E539776D4","sceneIndex":0,"perspective":"600px","oid":"1A28CFBC-EE5A-466C-9656-026FEEA6E3BD-389-0000041E539776D4","initialValues":{"1722CDB0-EB60-4EC1-9B87-10D606F5A0C2-389-0000042A2BA5915A":{"TagName":"div","BorderColorBottom":"#A0A0A0","Opacity":"0.000000","BorderStyleRight":"None","BorderStyleBottom":"None","Top":"88px","BorderWidthRight":"0px","BorderStyleLeft":"None","BorderColorTop":"#A0A0A0","BorderColorLeft":"#A0A0A0","Position":"absolute","Height":"24px","Left":"278px","BorderColorRight":"#A0A0A0","InnerHTML":"<form>\n<input type=\"text\" name=\"email\">\n<input type=\"submit\">\n</form>","BorderStyleTop":"None","ZIndex":"1","Width":"301px","BorderWidthTop":"0px","Overflow":"visible","BorderWidthLeft":"0px","BorderWidthBottom":"0px"},"823091C6-644B-40B7-8578-09D1A4F92124-763-000013D809E0E28F":{"Position":"absolute","PaddingTop":"8px","WhiteSpaceCollapsing":"preserve","PaddingRight":"8px","Left":"148px","Display":"inline","Overflow":"visible","Opacity":"0.000000","ZIndex":"2","Top":"83px","PaddingLeft":"8px","TextColor":"#000000","TagName":"div","PaddingBottom":"8px","InnerHTML":"<font class=\"Apple-style-span\" color=\"#FFFFFF\">E-Mail Address</font>","FontSize":"16px","WordWrap":"break-word"}},"name":"Untitled Scene","backgroundColor":"#000000"}];
+var scenes = [{"timelines":{"kTimelineDefaultIdentifier":{"framesPerSecond":30,"animations":[],"identifier":"kTimelineDefaultIdentifier","name":"Main Timeline","duration":0}},"id":"1A28CFBC-EE5A-466C-9656-026FEEA6E3BD-389-0000041E539776D4","sceneIndex":0,"perspective":"600px","oid":"1A28CFBC-EE5A-466C-9656-026FEEA6E3BD-389-0000041E539776D4","initialValues":{"1722CDB0-EB60-4EC1-9B87-10D606F5A0C2-389-0000042A2BA5915A":{"TagName":"div","BorderColorBottom":"#A0A0A0","Opacity":"1.000000","BorderStyleRight":"None","BorderStyleBottom":"None","Top":"9px","BorderWidthRight":"0px","BorderStyleLeft":"None","BorderColorTop":"#A0A0A0","BorderColorLeft":"#A0A0A0","Position":"absolute","Height":"27px","Left":"16px","BorderColorRight":"#A0A0A0","InnerHTML":"<form id=\"contacts-form\" action=\"/subscribe\">\n        <div class=\"field\"><label>Your E-mail:</label><input type=\"text\" value=\"\"></div>\n</form>","BorderStyleTop":"None","ZIndex":"1","Width":"668px","BorderWidthTop":"0px","Overflow":"visible","BorderWidthLeft":"0px","BorderWidthBottom":"0px"}},"name":"Untitled Scene","backgroundColor":"#000000"}];
 
-var javascriptMapping = {};
+var javascriptMapping = {"D84D4740-85C6-4C79-BCD4-D559072D03A3-408-0000086F33041545":"submitEmail"};
 
 
 	
 	var Custom = (function() {
 	return {
+
+submitEmail : function(hypeDocument, element) {
+	/*	
+		hypeDocument - access to the hype document API:
+						METHODS:
+						hypeDocument.documentName()
+						hypeDocument.sceneNames()
+						hypeDocument.currentSceneName()
+						hypeDocument.showSceneNamed(sceneName, optionalTransition)
+						hypeDocument.showNextScene(optionalTransition)
+						hypeDocument.showPreviousScene(optionalTransition)
+						hypeDocument.playTimelineNamed(timelineName)
+
+						MORE INFO:
+						http://tumultco.com/hype/documentation/javascript/
+	
+		element - DOMHTMLElement that triggered this function being called
+	*/
+	
+	document.emailform.submit();
+}
 	};
 }());
 

@@ -26,13 +26,13 @@ ul, ol {list-style:none}
 .tail-top {background:url(/static/images/tail-top.gif) left top repeat-x #1d1d1d}
 .tail-bottom {background:url(/static/images/tail-bottom.gif) left bottom repeat-x}
 /* FORMS */
-#contacts-form {clear:right;width:842px;overflow:hidden}
+#contacts-form {clear:right;overflow:hidden}
 #contacts-form fieldset {border:none;float:left}
 #contacts-form .field {clear:both}
 #contacts-form label {float:left;width:112px !important;width:109px;line-height:18px;padding-bottom:8px;color:#fff}
-#contacts-form input {width:293px;padding:1px 0 1px 3px;background:#000;border:1px solid #3a3a3a;color:#fff}
+#contacts-form input {width:293px;padding:1px 0 1px 3px;background:#fff;border:1px solid #3a3a3a;color:#fff}
 #contacts-form textarea {width:674px;height:174px;padding:2px 28px 1px 28px;background:url(/static/images/textarea-bg.gif) no-repeat left top;border:0;color:#fff;margin-bottom:15px;overflow:auto}
-#contacts-form .link2 {float:right}
+#contacts-form .link1 {float:right;border-color:#fff;border: thin; }
 /* LISTS */
 .movies {width:100%}
 .movies li {float:left;width:244px;margin-right:18px;margin-left:18px; }
