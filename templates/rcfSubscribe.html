@@ -16,8 +16,10 @@
                 <div class="inner">
                     <div id="fader">
                         <h3>Subscribe to <span>Film Times</span></h3>
-						<form id="contacts-form" action="/subscribe">
-					        <div class="field"><label>Your E-mail:</label><input type="text" value=""></div>
+						<form id="contacts-form" action="/subscribe" method="post">
+							{{ xsrf_form_html() }}
+							<input type="hidden" name="active" value={{ active }} />
+					        <div class="field"><label>Your E-mail:</label><input name="email" type="text" value=""></div>
 							<a href="#" id="ronfade" class="link3" onclick="fadeEffect.init('fader', 0);document.getElementById('contacts-form').submit()"><span><span>Subscribe</span></span></a>
 						</form>
 					</div>
