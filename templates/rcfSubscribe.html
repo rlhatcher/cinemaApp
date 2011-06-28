@@ -14,15 +14,13 @@
         <div class="border-right">
             <div class="border-left">
                 <div class="inner">
-                    <div id="adcontent">
+                    <div id="fader">
                         <h3>Subscribe to <span>Film Times</span></h3>
-						<div id="fader" onload="fadeEffect.init('fader', 1)">
-							<form id="contacts-form" action="/subscribe">
-							        <div class="field"><label>Your E-mail:</label><input type="text" value=""></div>
-									<a href="#" id="ronfade" class="link3" onclick="fadeEffect.init('fader', 0);document.getElementById('contacts-form').submit()"><span><span>Subscribe</span></span></a>
-							</form>
-						</div>
-                    </div>
+						<form id="contacts-form" action="/subscribe">
+					        <div class="field"><label>Your E-mail:</label><input type="text" value=""></div>
+							<a href="#" id="ronfade" class="link3" onclick="fadeEffect.init('fader', 0);document.getElementById('contacts-form').submit()"><span><span>Subscribe</span></span></a>
+						</form>
+					</div>
                     <div id="scraper">
                         {{ modules.AdScraper() }}
                             <br />
