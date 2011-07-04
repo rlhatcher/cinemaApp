@@ -63,7 +63,7 @@ class Movie(db.Model):
 
 class Subscriber(db.Model):
     """A mailing list subscriber"""
-    emailAddres = db.StringProperty();
+    email = db.StringProperty();
 
 def administrator(method):
     """Decorate with this method to restrict to site admins."""
@@ -252,9 +252,14 @@ class rcfSubscribeHandler(BaseHandler):
 	
 	def get(self):
 		self.render("rcfSubscribe.html", active=self.get_argument('active'))
+		subs = db.GqlQuery("SELECT * FROM Subscriber")
+		for sub in subs:
+			logging.info(sub.email)
 		
 	def post(self):
 		email = self.get_argument('email')
+		subscriber = Subscriber(email = email)
+		subscriber.put()
 		self.redirect("/" + self.get_argument('active'))
 		
 class rcfContactUsHandler(BaseHandler):
